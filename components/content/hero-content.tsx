@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { useEffect, useRef } from "react";
 import { generateKey } from "@/lib/utils";
 import { ColourfulText } from "./colorful-text";
+import { Cover } from "./text-wrap";
 
 function HeroContent() {
 	const container = useRef(null);
@@ -19,7 +20,7 @@ function HeroContent() {
 				stagger: 0.2,
 				delay: 4,
 			});
-		},
+		}
 		// { scope: container }
 	);
 
@@ -29,20 +30,30 @@ function HeroContent() {
 				{"Building Creative & Innovative Solutions That Just Make You Go Wow!"
 					.split(" ")
 					.map((word) => {
-            if (word === "Creative") return (
-							<div className="overflow-wrapper" key={generateKey()}>
-								<span className="hero-word block">
-									<ColourfulText text="Creative" />
-								</span>
-							</div>
-						);
+						if (word === "Creative")
+							return (
+								<div className="overflow-wrapper" key={generateKey()}>
+									<span className="hero-word block">
+										<ColourfulText text="Creative" />
+									</span>
+								</div>
+							);
+						if (word === "Innovative")
+							return (
+								<div className="overflow-wrapper" key={generateKey()}>
+									<span className="hero-word block">
+										<Cover>Innovative</Cover>
+									</span>
+								</div>
+							);
+						
 
-            return (
+						return (
 							<div className="overflow-wrapper" key={generateKey()}>
 								<span className="hero-word block">{word}</span>
 							</div>
 						);
-          })}
+					})}
 			</h1>
 		</div>
 	);
