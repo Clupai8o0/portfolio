@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 import { generateKey } from "@/lib/utils";
 import { ColourfulText } from "./colorful-text";
 import { Cover } from "./text-wrap";
+import { Spotlight } from "./spotlight";
 
 function HeroContent() {
 	const container = useRef(null);
@@ -26,6 +27,10 @@ function HeroContent() {
 
 	return (
 		<div className="mx-auto mt-16 flex justify-center" ref={container}>
+			<Spotlight
+				className="-top-40 left-0 md:left-[600px] md:-top-16"
+				fill="white"
+			/>
 			<h1 className="text-center text-9xl max-w-7xl flex flex-wrap justify-center gap-2">
 				{"Building Creative & Innovative Solutions That Just Make You Go Wow!"
 					.split(" ")
@@ -46,7 +51,14 @@ function HeroContent() {
 									</span>
 								</div>
 							);
-						
+						if (word === "Solutions")
+							return (
+								<div className="overflow-wrapper" key={generateKey()}>
+									<span className="hero-word block from-yellow-100 bg-clip-text bg-gradient-to-b to-yellow-500 not-italic text-transparent">
+										Solutions
+									</span>
+								</div>
+							);
 
 						return (
 							<div className="overflow-wrapper" key={generateKey()}>
