@@ -1,4 +1,7 @@
 import Bounded from "@/components/containers/bounded";
+import HeroContent from "@/components/content/hero-content";
+import Footer from "@/components/navigation/footer";
+import Navbar from "@/components/navigation/navbar";
 
 export default function Home() {
 	return (
@@ -9,8 +12,11 @@ export default function Home() {
 					<div className="absolute pointer-events-none inset-0 bg-stone-950 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
 				}
 			>
-				<div></div>
+				<Navbar />
+				<HeroContent />
 			</Bounded>
+
+			<Footer />
 		</main>
 	);
 }
