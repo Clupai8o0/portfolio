@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { useEffect, useState } from "react";
 
 import { animatePageIn } from "@/lib/animations";
+import { generateKey } from "@/lib/utils";
 
 interface Props {
 	children: React.ReactNode;
@@ -20,6 +21,22 @@ function Template({ children }: Props) {
 		setCount(addedValue);
 	};
 
+	// useEffect(() => {
+	// 	gsap.fromTo(
+	// 		".logo-letter",
+	// 		{
+	// 			yPercent: 100,
+	// 		},
+	// 		{
+	// 			duration: 0.1,
+	// 			stagger: 0.05,
+	// 			ease: "power1.out",
+	// 			yPercent: 0,
+	// 			delay: 0.1,
+	// 		}
+	// 	);
+	// }, []);
+
 	useEffect(() => {
 		const timeout = setTimeout(
 			updateCounter,
@@ -34,6 +51,12 @@ function Template({ children }: Props) {
 				ease: "power1.in",
 				delay: 0.3,
 			});
+			gsap.to(".logo-letter", {
+				yPercent: 100,
+				duration: 0.3,
+				stagger: 0.05,
+				ease: "power1.in",
+			});
 			animatePageIn();
 		}
 		return () => clearTimeout(timeout);
@@ -43,12 +66,28 @@ function Template({ children }: Props) {
 		<div>
 			<div
 				id="banner"
-				className="h-screen w-screen fixed top-0 left-0 bg-stone-100 z-50 flex items-end justify-end p-24"
+				className="h-screen w-screen fixed top-0 left-0 bg-stone-100 z-50"
 			>
-				<div className="overflow-wrapper">
-					<h1 className="font-sans text-9xl font-regular text-black" id="counter">
-						{count}
-					</h1>
+				<div className="h-full w-full absolute top-0 left-0 flex items-center justify-center p-24">
+					<div className="overflow-wrapper">
+						<h1 className="text-6xl font-sans font-regular text-black flex items-center">
+							{"clupai".split("").map((letter) => (
+								<span key={generateKey()} className="block logo-letter">
+									{letter}
+								</span>
+							))}
+						</h1>
+					</div>
+				</div>
+				<div className="h-full w-full absolute top-0 left-0 flex items-end justify-end p-24">
+					<div className="overflow-wrapper">
+						<span
+							className="block font-sans text-9xl font-regular text-black"
+							id="counter"
+						>
+							{count}
+						</span>
+					</div>
 				</div>
 			</div>
 			{children}
