@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 
-const dmSans = DM_Sans({
+const sans = Outfit({
 	variable: "--font-sans",
 	subsets: ["latin"],
 });
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${dmSans.variable} antialiased`}>{children}</body>
+			<body className={sans.variable}>{children}</body>
 		</html>
 	);
 }
