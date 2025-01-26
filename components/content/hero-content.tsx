@@ -44,7 +44,7 @@ function HeroContent() {
 					duration: 0.5,
 					ease: "power1.out",
 					stagger: 0.2,
-					delay: 4,
+					delay: 4.5,
 				},
 				"text-in"
 			);
@@ -79,7 +79,7 @@ function HeroContent() {
 						if (word === "Innovative")
 							return (
 								<div className="overflow-wrapper" key={generateKey()}>
-									<span className="hero-word block">
+									<span className="hero-word block font-sans font-light">
 										<Cover>Innovative</Cover>
 									</span>
 								</div>
@@ -87,7 +87,7 @@ function HeroContent() {
 						if (word === "Solutions")
 							return (
 								<div className="overflow-wrapper" key={generateKey()}>
-									<span className="hero-word block from-yellow-100 bg-clip-text bg-gradient-to-b to-yellow-500 not-italic text-transparent">
+									<span className="hero-word block from-yellow-100 bg-clip-text bg-gradient-to-b to-yellow-500 not-italic text-transparent font-sans font-medium">
 										Solutions
 									</span>
 								</div>
@@ -121,7 +121,7 @@ function HeroContent() {
 										/>
 									</div>
 									<div className="overflow-wrapper">
-										<span className="block hero-word">Wow!</span>
+										<span className="block hero-word font-medium">Wow!</span>
 									</div>
 								</div>
 							);

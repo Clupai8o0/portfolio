@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Tulpen_One, Outfit, IBM_Plex_Mono, Space_Mono } from "next/font/google";
+import { Tulpen_One, Outfit, IBM_Plex_Mono, Space_Mono, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
 
@@ -13,6 +13,10 @@ const mono = Space_Mono({
 	subsets: ["latin"],
 	weight: ["400"],
 });
+const serif = EB_Garamond({
+	variable: "--font-serif",
+	subsets: ["latin"]
+})
 
 export const metadata: Metadata = {
 	title: "Clupai",
@@ -27,7 +31,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={clsx(sans.variable, mono.variable)}>{children}</body>
+			<body className={clsx(sans.variable, mono.variable, serif.variable)}>{children}</body>
 		</html>
 	);
 }
