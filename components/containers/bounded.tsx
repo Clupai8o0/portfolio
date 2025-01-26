@@ -5,9 +5,10 @@ interface Props {
 	className?: string;
 	parentClassName?: string;
 	id?: string;
+  outerChildren?: React.ReactNode;
 }
 
-function Bounded({ children, className, parentClassName, id }: Props) {
+function Bounded({ children, className, parentClassName, id, outerChildren }: Props) {
 	return (
 		<section
 			className={clsx(
@@ -16,6 +17,7 @@ function Bounded({ children, className, parentClassName, id }: Props) {
 			)}
 			id={id}
 		>
+      {outerChildren}
 			<div
 				className={clsx("flex flex-col relative max-w-7xl w-full", className)}
 			>
