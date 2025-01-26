@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Tulpen_One, Outfit } from "next/font/google";
+import { Tulpen_One, Outfit, IBM_Plex_Mono, Space_Mono } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
 
@@ -8,7 +8,7 @@ const sans = Outfit({
 	subsets: ["latin"],
 	weight: ["200", "300", "400", "500"],
 });
-const mono = Tulpen_One({
+const mono = Space_Mono({
 	variable: "--font-mono",
 	subsets: ["latin"],
 	weight: ["400"],
