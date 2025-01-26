@@ -5,6 +5,7 @@ import Logo from "./logo";
 import { useRef } from "react";
 import { animateLogoIn } from "@/lib/animations";
 import Link from "./transition-link";
+import Menu from "./menu";
 
 const Navbar = () => {
 	const container = useRef(null);
@@ -22,14 +23,7 @@ const Navbar = () => {
 			className="h-24 w-full flex items-center justify-between px-4"
 		>
 			<Logo className="text-white text-xl" />
-			<nav>
-				<ul className="flex items-center gap-2">
-					<li className="hidden md:block">
-						<Link href="/contact">Contact</Link>
-					</li>
-					<li>Burger</li>
-				</ul>
-			</nav>
+			<Menu />
 		</header>
 	);
 };
