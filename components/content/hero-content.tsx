@@ -15,10 +15,10 @@ function HeroContent() {
 	const sparkleAnim = (
 		tl: gsap.core.Timeline,
 		id: string,
-		y1: number,
 		x1: number,
-		y2: number,
-		x2: number
+		y1: number,
+		x2: number,
+		y2: number
 	) => {
 		tl.fromTo(
 			id,
@@ -49,19 +49,20 @@ function HeroContent() {
 				"text-in"
 			);
 
-			sparkleAnim(tl, "#sparkle-1", 0, 0, -200, -300);
-			// sparkleAnim(tl, "#sparkle-2", 45, 45, 30, -10);
-			// sparkleAnim(tl, "#sparkle-3", 40, 40, 80, 300);
-			// sparkleAnim(tl, "#sparkle-4", 20, 40, 30, 120);
-			// sparkleAnim(tl, "#sparkle-5", 25, 45, 25, 115);
-		}
-		// { scope: container }
+			sparkleAnim(tl, "#sparkle-1", 0, 0, -300, -200);
+			sparkleAnim(tl, "#sparkle-2", 0, 0, 400, 200);
+			sparkleAnim(tl, "#sparkle-3", 0, 0, 40, 300);
+			sparkleAnim(tl, "#sparkle-4", 0, 0, -300, 0);
+			sparkleAnim(tl, "#sparkle-5", 0, 0, 215, -250);
+			sparkleAnim(tl, "#sparkle-6", 0, 0, -55, -200);
+		},
+		{ scope: container }
 	);
 
 	return (
 		<div className="mx-auto mt-16 flex justify-center" ref={container}>
 			<Spotlight
-				className="-top-40 left-0 md:left-[600px] md:-top-16"
+				className="-top-40 left-0 md:left-[400px] md:-top-16"
 				fill="white"
 			/>
 			<h1 className="text-[108px] max-w-7xl flex flex-wrap justify-start gap-2 leading-[1] font-light font-sans">
@@ -109,7 +110,7 @@ function HeroContent() {
 										/>
 										<Sparkle
 											id="sparkle-3"
-											className="sparkle h-2 w-2 rotate-6"
+											className="sparkle h-4 w-4 rotate-6"
 										/>
 										<Sparkle
 											id="sparkle-4"
@@ -119,9 +120,15 @@ function HeroContent() {
 											id="sparkle-5"
 											className="sparkle h-4 w-4 -rotate-12"
 										/>
+										<Sparkle
+											id="sparkle-6"
+											className="sparkle h-6 w-6 -rotate-10"
+										/>
 									</div>
 									<div className="overflow-wrapper">
-										<span className="block hero-word font-medium text-white">Wow!</span>
+										<span className="block hero-word font-medium text-white">
+											Wow!
+										</span>
 									</div>
 								</div>
 							);
