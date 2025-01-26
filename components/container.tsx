@@ -10,6 +10,7 @@ import { BaseWrapperProps } from "@/lib/props";
 
 interface WrapperProps extends BaseWrapperProps {
 	parentClassName?: string;
+	outerChildren?: React.ReactNode;
 	animate?: {
 		tlVars?: gsap.TimelineVars;
 		targets: gsap.TweenTarget;
@@ -23,6 +24,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 const Container = ({
 	className,
 	children,
+	outerChildren,
 	id,
 	parentClassName,
 	animate,
@@ -54,6 +56,7 @@ const Container = ({
 			)}
 			id={id}
 		>
+			{outerChildren}
 			<div
 				className={clsx("flex flex-col relative max-w-7xl w-full", className)}
 				ref={container}

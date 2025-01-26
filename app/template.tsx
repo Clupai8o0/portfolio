@@ -43,10 +43,10 @@ function Template({ children }: Props) {
 		<div>
 			<div
 				id="banner"
-				className="h-screen w-screen fixed top-0 left-0 bg-transparent z-50 flex items-end justify-end p-24"
+				className="h-screen w-screen fixed top-0 left-0 bg-slate-100 z-50 flex items-end justify-end p-24"
 			>
 				<div className="overflow-wrapper">
-					<h1 className="font-mono text-9xl font-black text-white" id="counter">
+					<h1 className="font-mono text-9xl font-black text-black" id="counter">
 						{count}
 					</h1>
 				</div>

@@ -43,8 +43,8 @@ function HeroContent() {
 					yPercent: 110,
 					duration: 0.5,
 					ease: "power1.out",
-					// stagger: 0.2,
-					// delay: 4,
+					stagger: 0.2,
+					delay: 4,
 				},
 				"text-in"
 			);
@@ -59,7 +59,7 @@ function HeroContent() {
 	);
 
 	return (
-		<div className="mx-auto mt-8 flex justify-center" ref={container}>
+		<div className="mx-auto mt-16 flex justify-center" ref={container}>
 			<Spotlight
 				className="-top-40 left-0 md:left-[600px] md:-top-16"
 				fill="white"
