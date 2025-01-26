@@ -15,17 +15,21 @@ function HeroContent() {
 	const sparkleAnim = (
 		tl: gsap.core.Timeline,
 		id: string,
-		x1: number,
-		y1: number,
-		x2: number,
-		y2: number
+		x: number,
+		y: number
 	) => {
 		tl.fromTo(
 			id,
-			{ yPercent: y1, xPercent: x1, opacity: 0 },
 			{
-				yPercent: y2,
-				xPercent: x2,
+				yPercent: y - y / 2,
+				xPercent: x - x / 2,
+				opacity: 0,
+				scale: 0.7,
+			},
+			{
+				xPercent: x,
+				yPercent: y,
+				scale: 1,
 				opacity: 1,
 				duration: 0.4,
 				ease: "power1.out",
@@ -49,12 +53,12 @@ function HeroContent() {
 				"text-in"
 			);
 
-			sparkleAnim(tl, "#sparkle-1", 0, 0, -300, -200);
-			sparkleAnim(tl, "#sparkle-2", 0, 0, 400, 200);
-			sparkleAnim(tl, "#sparkle-3", 0, 0, 40, 300);
-			sparkleAnim(tl, "#sparkle-4", 0, 0, -300, 0);
-			sparkleAnim(tl, "#sparkle-5", 0, 0, 215, -250);
-			sparkleAnim(tl, "#sparkle-6", 0, 0, -55, -200);
+			sparkleAnim(tl, "#sparkle-1", -300, -200);
+			sparkleAnim(tl, "#sparkle-2", 400, 200);
+			sparkleAnim(tl, "#sparkle-3", 40, 300);
+			sparkleAnim(tl, "#sparkle-4", -300, 0);
+			sparkleAnim(tl, "#sparkle-5", 215, -250);
+			sparkleAnim(tl, "#sparkle-6", -55, -200);
 		},
 		{ scope: container }
 	);
