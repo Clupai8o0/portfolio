@@ -121,14 +121,14 @@ function HeroContent() {
 										/>
 									</div>
 									<div className="overflow-wrapper">
-										<span className="block hero-word font-medium">Wow!</span>
+										<span className="block hero-word font-medium text-white">Wow!</span>
 									</div>
 								</div>
 							);
 
 						return (
 							<div className="overflow-wrapper" key={generateKey()}>
-								<span className="hero-word block">{word}</span>
+								<span className="hero-word block text-slate-300">{word}</span>
 							</div>
 						);
 					})}
