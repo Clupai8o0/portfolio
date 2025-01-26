@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import Logo from "./logo";
 import { useRef } from "react";
 import { animateLogoIn } from "@/lib/animations";
+import Link from "./transition-link";
 
 const Navbar = () => {
 	const container = useRef(null);
@@ -23,7 +24,9 @@ const Navbar = () => {
 			<Logo className="text-white text-xl" />
 			<nav>
 				<ul className="flex items-center gap-2">
-					<li>Contact</li>
+					<li className="hidden md:block">
+						<Link href="/contact">Contact</Link>
+					</li>
 					<li>Burger</li>
 				</ul>
 			</nav>
