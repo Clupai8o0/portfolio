@@ -3,8 +3,8 @@
 import gsap from "gsap";
 import { useEffect, useState } from "react";
 
-import { generateKey } from "@/lib/utils";
-import { animatePageIn } from "@/lib/animations";
+import { animateLogoOut, animatePageIn } from "@/lib/animations";
+import Logo from "@/components/navigation/logo";
 
 interface Props {
 	children: React.ReactNode;
@@ -34,12 +34,7 @@ function Template({ children }: Props) {
 				ease: "power1.in",
 				delay: 0.3,
 			});
-			gsap.to(".logo-letter", {
-				yPercent: 100,
-				duration: 0.3,
-				stagger: 0.05,
-				ease: "power1.in",
-			});
+			animateLogoOut();
 			animatePageIn();
 		}
 		return () => clearTimeout(timeout);
@@ -52,15 +47,7 @@ function Template({ children }: Props) {
 				className="h-dvh w-screen fixed top-0 left-0 bg-stone-100 z-50"
 			>
 				<div className="h-full w-full absolute top-0 left-0 flex items-center justify-center p-24">
-					<div className="overflow-hidden">
-						<h1 className="text-4xl md:text-6xl font-sans font-regular text-black flex items-center">
-							{"clupai".split("").map((letter) => (
-								<span key={generateKey()} className="block logo-letter">
-									{letter}
-								</span>
-							))}
-						</h1>
-					</div>
+					<Logo className="text-black text-4xl md:text-6xl" />
 				</div>
 				<div className="h-full w-full absolute top-0 left-0 flex items-end justify-end p-12 lg:p-24">
 					<div className="overflow-hidden">
