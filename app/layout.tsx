@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { DM_Sans, Tulpen_One, League_Spartan, Outfit } from "next/font/google";
 import "./globals.css";
+import clsx from "clsx";
 
-const dmSans = DM_Sans({
+const sans = Outfit({
 	variable: "--font-sans",
 	subsets: ["latin"],
+});
+const mono = Tulpen_One({
+	variable: "--font-mono",
+	subsets: ["latin"],
+	weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -20,7 +26,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={dmSans.variable}>{children}</body>
+			<body className={clsx(sans.variable, mono.variable)}>
+				{children}
+			</body>
 		</html>
 	);
 }
