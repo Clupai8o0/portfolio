@@ -29,7 +29,7 @@ function Template({ children }: Props) {
 		// once count turns 100, fade the count out
 		if (count === 100) {
 			gsap.to("#counter", {
-				yPercent: 100,
+				yPercent: 110,
 				duration: 0.5,
 				ease: "power1.in",
 				delay: 0.3,

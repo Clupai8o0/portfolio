@@ -68,7 +68,7 @@
 }
 
 .p {
-	@apply px-4 md:px-8; 
+	@apply px-4 md:px-8;
 }
 
 /** Navigation */
@@ -76,18 +76,21 @@
 	@apply h-24 w-full flex items-center justify-between p;
 }
 .fixed-full {
-  @apply fixed top-0 left-0;
+	@apply fixed top-0 left-0;
 }
 .fixed-top-center {
 	@apply fixed top-0 left-1/2 transform -translate-x-1/2 -translate-y-0;
 }
 .menu-overlay {
-  clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+	clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
 }
 .overflow-wrapper {
-	clip-path: polygon(0 0, 100% 0, 100% 120%, 0% 120%);
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 .overflow-wrapper-2 {
+	clip-path: polygon(0 0, 100% 0, 100% 120%, 0% 120%);
+}
+.overflow-wrapper-3 {
 	clip-path: polygon(0 0, 100% 0, 100% 140%, 0% 140%);
 }
 .button {
