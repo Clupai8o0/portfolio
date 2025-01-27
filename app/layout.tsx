@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Tulpen_One, Outfit, IBM_Plex_Mono, Space_Mono, EB_Garamond } from "next/font/google";
+import { Outfit } from "next/font/google";
+
 import "./globals.css";
 import clsx from "clsx";
 
@@ -31,7 +32,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={clsx(sans.variable, mono.variable, serif.variable)}>{children}</body>
+			<body className={`${sans.variable} antialiased`}>{children}</body>
 		</html>
 	);
 }

@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { motion } from "motion/react";
 
@@ -24,7 +25,8 @@ export function ColourfulText({ text }: { text: string }) {
 			const shuffled = [...colors].sort(() => Math.random() - 0.5);
 			setCurrentColors(shuffled);
 			setCount((prev) => prev + 1);
-		}, 3000);
+		}, 5000);
+
 
 		return () => clearInterval(interval);
 	}, []);

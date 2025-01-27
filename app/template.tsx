@@ -1,11 +1,10 @@
 "use client";
 
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import { useEffect, useState } from "react";
 
-import { animatePageIn } from "@/lib/animations";
-import { generateKey } from "@/lib/utils";
+import { animateLogoOut, animatePageIn } from "@/lib/animations";
+import Logo from "@/components/navigation/logo";
 
 interface Props {
 	children: React.ReactNode;
@@ -20,23 +19,7 @@ function Template({ children }: Props) {
 		if (addedValue > 100) return setCount(100);
 		setCount(addedValue);
 	};
-
-	// useEffect(() => {
-	// 	gsap.fromTo(
-	// 		".logo-letter",
-	// 		{
-	// 			yPercent: 100,
-	// 		},
-	// 		{
-	// 			duration: 0.1,
-	// 			stagger: 0.05,
-	// 			ease: "power1.out",
-	// 			yPercent: 0,
-	// 			delay: 0.1,
-	// 		}
-	// 	);
-	// }, []);
-
+  
 	useEffect(() => {
 		const timeout = setTimeout(
 			updateCounter,
@@ -46,17 +29,12 @@ function Template({ children }: Props) {
 		// once count turns 100, fade the count out
 		if (count === 100) {
 			gsap.to("#counter", {
-				yPercent: 100,
+				yPercent: 110,
 				duration: 0.5,
 				ease: "power1.in",
 				delay: 0.3,
 			});
-			gsap.to(".logo-letter", {
-				yPercent: 100,
-				duration: 0.3,
-				stagger: 0.05,
-				ease: "power1.in",
-			});
+			animateLogoOut();
 			animatePageIn();
 		}
 		return () => clearTimeout(timeout);
@@ -66,23 +44,15 @@ function Template({ children }: Props) {
 		<div>
 			<div
 				id="banner"
-				className="h-screen w-screen fixed top-0 left-0 bg-stone-100 z-50"
+				className="h-dvh w-screen fixed top-0 left-0 bg-stone-100 z-[1000]"
 			>
 				<div className="h-full w-full absolute top-0 left-0 flex items-center justify-center p-24">
-					<div className="overflow-wrapper">
-						<h1 className="text-6xl font-sans font-regular text-black flex items-center">
-							{"clupai".split("").map((letter) => (
-								<span key={generateKey()} className="block logo-letter">
-									{letter}
-								</span>
-							))}
-						</h1>
-					</div>
+					<Logo className="text-black text-4xl md:text-6xl" />
 				</div>
-				<div className="h-full w-full absolute top-0 left-0 flex items-end justify-end p-24">
+				<div className="h-full w-full absolute top-0 left-0 flex items-end justify-end p-12 lg:p-20">
 					<div className="overflow-wrapper">
 						<span
-							className="block font-sans text-9xl font-regular text-black"
+							className="block font-sans text-6xl md:text-9xl font-regular text-black"
 							id="counter"
 						>
 							{count}

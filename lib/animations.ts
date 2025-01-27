@@ -25,13 +25,30 @@ export const animatePageOut = (href: string, router: AppRouterInstance) => {
 
 		tl.set(banner, {
 			yPercent: 100,
-		})
-			.to(banner, {
-				yPercent: 0,
-				duration: 0.8,
-				onComplete: () => {
-					router.push(href);
-				},
-			})
+		}).to(banner, {
+			yPercent: 0,
+			duration: 0.8,
+			onComplete: () => {
+				router.push(href);
+			},
+		});
 	}
+};
+
+export const animateLogoIn = (delay?: number) => {
+	gsap.to(".logo-letter", {
+		yPercent: 0,
+		duration: 0.3,
+		stagger: 0.05,
+		delay,
+		ease: "power4.out",
+	});
+};
+export const animateLogoOut = () => {
+	gsap.to(".logo-letter", {
+		yPercent: 110,
+		duration: 0.3,
+		stagger: 0.05,
+		ease: "sine.in",
+	});
 };
