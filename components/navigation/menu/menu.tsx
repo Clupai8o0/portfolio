@@ -3,24 +3,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
-// import "./menu.css";
-
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-
-const menuLinks = [
-	{ path: "/", label: "Home" },
-	{ path: "/work", label: "Work" },
-	{ path: "/about", label: "About" },
-	{ path: "/contact", label: "Contact" },
-	{ path: "/lab", label: "Lab" },
-];
+import { links } from "@/lib/links";
 
 const Menu = () => {
-	const container = useRef();
+	const container = useRef(null);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-	const tl = useRef();
+	const tl = useRef(null);
 
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
@@ -29,6 +20,7 @@ const Menu = () => {
 	useGSAP(
 		() => {
 			gsap.set(".menu-link-item-holder", { y: 75 });
+			//@ts-ignore
 			tl.current = gsap
 				.timeline({ paused: true })
 				.to(".menu-overlay", {
@@ -49,8 +41,10 @@ const Menu = () => {
 
 	useEffect(() => {
 		if (isMenuOpen) {
+			//@ts-ignore
 			tl.current.play();
 		} else {
+			//@ts-ignore
 			tl.current.reverse();
 		}
 	}, [isMenuOpen]);
@@ -85,7 +79,7 @@ const Menu = () => {
 				</div>
 				<div className="menu-copy">
 					<div className="menu-links">
-						{menuLinks.map((link, index) => (
+						{links.map((link, index) => (
 							<div key={index} className="menu-link-item">
 								<div className="menu-link-item-holder" onClick={toggleMenu}>
 									<Link className="menu-link" href={link.path}>
