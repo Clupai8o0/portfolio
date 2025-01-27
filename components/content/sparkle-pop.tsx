@@ -19,11 +19,7 @@ const Spark = ({ id, className }: { id: string; className: string }) => (
 const SparklePop = () => {
 	const container = React.useRef(null);
 
-	const sparkleAnim = (
-		id: string,
-		x: number,
-		y: number
-	) => {
+	const sparkleAnim = (id: string, x: number, y: number) => {
 		gsap.fromTo(
 			id,
 			{
@@ -40,21 +36,32 @@ const SparklePop = () => {
 				duration: 0.8,
 				ease: "power4.out",
 				// delay: id === "#spark-1" ? 8 : 0,
-				delay: 8
-			},
+				delay: 8,
+			}
 			// "="
 		);
 	};
 
 	useGSAP(
 		() => {
-
-			sparkleAnim("#spark-1", -500, -700);
-			sparkleAnim("#spark-2", 400, 300);
-			sparkleAnim("#spark-3", -90, 300);
-			sparkleAnim("#spark-4", 700, -100);
-			sparkleAnim("#spark-5", 215, -150);
-			sparkleAnim("#spark-6", -400, -80);
+			const mm = gsap.matchMedia();
+      
+			mm.add("(min-width: 900px)", () => {
+				sparkleAnim("#spark-1", -500, -700);
+				sparkleAnim("#spark-2", 400, 300);
+				sparkleAnim("#spark-3", -90, 300);
+				sparkleAnim("#spark-4", 700, -100);
+				sparkleAnim("#spark-5", 215, -150);
+				sparkleAnim("#spark-6", -400, -80);
+			});
+			mm.add("(max-width: 899px)", () => {
+				sparkleAnim("#spark-1", -500 * 0.7, -700 * 0.7);
+				sparkleAnim("#spark-2", 400 * 0.7, 300 * 0.7);
+				sparkleAnim("#spark-3", -90 * 0.7, 300 * 0.7);
+				sparkleAnim("#spark-4", 700 * 0.7, -100 * 0.7);
+				sparkleAnim("#spark-5", 215 * 0.7, -150 * 0.7);
+				sparkleAnim("#spark-6", -400 * 0.7, -80 * 0.7);
+			});
 		},
 		{ scope: container }
 	);
