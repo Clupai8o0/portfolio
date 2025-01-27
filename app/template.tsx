@@ -44,12 +44,12 @@ function Template({ children }: Props) {
 		<div>
 			<div
 				id="banner"
-				className="h-dvh w-screen fixed top-0 left-0 bg-stone-100 z-50"
+				className="h-dvh w-screen fixed top-0 left-0 bg-stone-100 z-[1000]"
 			>
 				<div className="h-full w-full absolute top-0 left-0 flex items-center justify-center p-24">
 					<Logo className="text-black text-4xl md:text-6xl" />
 				</div>
-				<div className="h-full w-full absolute top-0 left-0 flex items-end justify-end p-12 lg:p-24">
+				<div className="h-full w-full absolute top-0 left-0 flex items-end justify-end p-12 lg:p-20">
 					<div className="overflow-wrapper">
 						<span
 							className="block font-sans text-6xl md:text-9xl font-regular text-black"

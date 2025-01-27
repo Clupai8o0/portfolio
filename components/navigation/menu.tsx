@@ -62,7 +62,7 @@ const Menu = () => {
 			</button>
 
 			{/* menu-overlay */}
-			<div className="fixed-full w-screen h-dvh py-8 px-4 md:px-8 bg-slate-100 z-10 flex menu-overlay">
+			<div className="fixed-full w-screen h-dvh py-8 px-4 md:px-8 bg-slate-100 z-50 flex menu-overlay">
 				<div className="w-full h-full flex max-w-7xl mx-auto relative">
 					{/* menu-overlay-bar */}
 					<div className="fixed-top-center nav-layout z-[1] max-w-7xl">
