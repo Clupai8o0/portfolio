@@ -5,7 +5,7 @@ import Logo from "./logo";
 import { useRef } from "react";
 import { animateLogoIn } from "@/lib/animations";
 import Link from "./transition-link";
-import Menu from "./menu";
+import Menu from "./menu/menu";
 
 const Navbar = () => {
 	const container = useRef(null);
