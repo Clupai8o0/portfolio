@@ -1,11 +1,13 @@
 "use client";
 
-import { useGSAP } from "@gsap/react";
-import Logo from "./logo";
 import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
+import Logo from "./logo";
+import Menu from "./menu";
+
 import { animateLogoIn } from "@/lib/animations";
-import Link from "./transition-link";
-import Menu from "./menu/menu";
 
 const Navbar = () => {
 	const container = useRef(null);
@@ -13,6 +15,13 @@ const Navbar = () => {
 	useGSAP(
 		() => {
 			animateLogoIn(6);
+			gsap.from("#menu-button", {
+				yPercent: 100,
+				opacity: 0,
+				duration: 0.5,
+				delay: 6.5,
+				ease: "power4.out",
+			});
 		},
 		{ scope: container }
 	);
@@ -20,7 +29,7 @@ const Navbar = () => {
 	return (
 		<header
 			ref={container}
-			className="h-24 w-full flex items-center justify-between px-4"
+			className="nav-layout"
 		>
 			<Logo className="text-white text-xl" />
 			<Menu />

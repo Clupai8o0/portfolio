@@ -39,7 +39,7 @@ export const animateLogoIn = (delay?: number) => {
 	gsap.to(".logo-letter", {
 		yPercent: 0,
 		duration: 0.3,
-		stagger: 0.05,
+		stagger: 0.02,
 		delay,
 		ease: "power1.out",
 	});
@@ -48,7 +48,7 @@ export const animateLogoOut = () => {
 	gsap.to(".logo-letter", {
 		yPercent: 100,
 		duration: 0.3,
-		stagger: 0.05,
+		stagger: 0.02,
 		ease: "power1.in",
 	});
 };
