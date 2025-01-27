@@ -3,6 +3,7 @@
 import { generateKey } from "@/lib/utils";
 import { useGSAP } from "@gsap/react";
 import React, { useRef } from "react";
+import { ColourfulText } from "./colorful-text";
 
 const HeroContent = () => {
 	const container = useRef(null);
@@ -17,7 +18,12 @@ const HeroContent = () => {
 					.map((word) => (
 						<div key={generateKey()} className="overflow-wrapper">
 							{(() => {
-								// if (word === "Creative") return <div className="word-top"></div>
+								if (word === "Creative")
+									return (
+										<div className="word-top">
+											<ColourfulText text="Creative" />
+										</div>
+									);
 
 								return <div className="word-bottom text-slate-200">{word}</div>;
 							})()}
