@@ -1,18 +1,22 @@
 "use client";
 
-import LocomotiveScroll from "locomotive-scroll";
+import { useEffect } from "react";
 
 import Navbar from "@/components/navigation/navbar";
 import Footer from "@/components/navigation/footer";
 import Bounded from "@/components/containers/bounded";
 import HeroContent from "@/components/content/hero-content";
+import ClipImage from "@/components/content/clip-image";
 import { Spotlight } from "@/components/content/spotlight";
-import { useEffect } from "react";
 
 export default function Home() {
 	useEffect(() => {
-		const scroll = new LocomotiveScroll();
-	});
+		(async () => {
+			const LocomotiveScroll = (await import("locomotive-scroll")).default;
+
+			const locomotiveScroll = new LocomotiveScroll();
+		})();
+	}, []);
 
 	return (
 		<main>
@@ -28,6 +32,10 @@ export default function Home() {
 				<Navbar />
 				<HeroContent />
 			</Bounded>
+
+			<ClipImage />
+
+			<div className="h-screen w-screen"></div>
 
 			<Footer />
 		</main>

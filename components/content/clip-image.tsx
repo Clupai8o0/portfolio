@@ -5,6 +5,7 @@ import React, { useRef } from "react";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { BackgroundGradient } from "../containers/background-gradient";
 
 gsap.registerPlugin(ScrollTrigger);
 function ClipImage() {
@@ -12,6 +13,14 @@ function ClipImage() {
 
 	useGSAP(
 		() => {
+			gsap.from(".about-image", {
+				y: 50,
+				opacity: 0,
+				duration: 0.8,
+				ease: "power4.out",
+				delay: 9,
+			});
+
 			const clipAnimation = gsap.timeline({
 				scrollTrigger: {
 					trigger: "#clip",
@@ -33,14 +42,16 @@ function ClipImage() {
 	);
 
 	return (
-		<div className="relative w-screen h-screen" ref={container}>
-			<div className="h-dvh w-screen" id="clip">
-				<div className="mask-clip-path about-image">
-					<img
-						src="/img.jpg"
-						alt="Background"
-						className="absolute left-0 top-0 size-full object-cover"
-					/>
+		<div className="min-h-screen w-screen" data-scroll data-scroll-speed="0.3">
+			<div className="relative w-screen h-screen" ref={container}>
+				<div className="h-dvh w-screen" id="clip">
+					<div className="mask-clip-path about-image">
+						<img
+							src="/img.jpg"
+							alt="Background"
+							className="absolute left-0 top-0 size-full object-cover"
+						/>
+					</div>
 				</div>
 			</div>
 		</div>
