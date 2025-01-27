@@ -7,7 +7,7 @@ interface Props {
 
 const Logo = ({ className }: Props) => {
 	return (
-		<div className="overflow-hidden">
+		<div className="overflow-wrapper">
 			<h1
 				className={clsx(
 					"font-sans font-regular flex items-center",

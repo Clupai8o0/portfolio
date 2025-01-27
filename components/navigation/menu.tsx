@@ -80,7 +80,7 @@ const Menu = () => {
 					<div className="flex-[4] flex flex-col justify-between pt-32 lg:pt-16">
 						<div>
 							{links.map((link, index) => (
-								<div key={index} className="menu-link-item w-max">
+								<div key={index} className="overflow-wrapper w-max">
 									{/* //! not so sure about this line */}
 									<div
 										className="menu-link-item-holder relative"

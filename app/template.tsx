@@ -50,7 +50,7 @@ function Template({ children }: Props) {
 					<Logo className="text-black text-4xl md:text-6xl" />
 				</div>
 				<div className="h-full w-full absolute top-0 left-0 flex items-end justify-end p-12 lg:p-24">
-					<div className="overflow-hidden">
+					<div className="overflow-wrapper">
 						<span
 							className="block font-sans text-6xl md:text-9xl font-regular text-black"
 							id="counter"
