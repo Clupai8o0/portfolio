@@ -7,6 +7,7 @@ import { ColourfulText } from "./colorful-text";
 import gsap from "gsap";
 import Cover from "./cover";
 import SparklePop from "./sparkle-pop";
+import clsx from "clsx";
 
 const heroPhrase =
 	"Building Creative & Innovative Solutions that just make you go Wow!".split(
@@ -48,7 +49,12 @@ const HeroContent = () => {
 						{word === "Wow!" && <SparklePop />}
 
 						{/* //* every other word */}
-						<div className="overflow-wrapper-2">
+						<div
+							className={clsx(
+								(word === "Innovative" && "overflow-wrapper-2-full") ||
+									"overflow-wrapper-2"
+							)}
+						>
 							<div className={`word-${i} text-slate-200`}>
 								{(() => {
 									if (word === "Creative")
