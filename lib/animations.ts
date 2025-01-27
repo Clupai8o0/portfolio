@@ -39,16 +39,16 @@ export const animateLogoIn = (delay?: number) => {
 	gsap.to(".logo-letter", {
 		yPercent: 0,
 		duration: 0.3,
-		stagger: 0.02,
+		stagger: 0.05,
 		delay,
-		ease: "power1.out",
+		ease: "power4.out",
 	});
 };
 export const animateLogoOut = () => {
 	gsap.to(".logo-letter", {
 		yPercent: 100,
 		duration: 0.3,
-		stagger: 0.02,
-		ease: "power1.in",
+		stagger: 0.05,
+		ease: "sine.in",
 	});
 };

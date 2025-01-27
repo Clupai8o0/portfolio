@@ -8,6 +8,7 @@ import Logo from "./logo";
 import Menu from "./menu";
 
 import { animateLogoIn } from "@/lib/animations";
+import Link from "./transition-link";
 
 const Navbar = () => {
 	const container = useRef(null);
@@ -15,24 +16,29 @@ const Navbar = () => {
 	useGSAP(
 		() => {
 			animateLogoIn(6);
-			gsap.from("#menu-button", {
+			gsap.from(["#contact-button", "#menu-button"], {
 				yPercent: 100,
 				opacity: 0,
 				duration: 0.5,
 				delay: 6.5,
-				ease: "power4.out",
+				stagger: 0.2,
+				ease: "power2.out",
 			});
 		},
 		{ scope: container }
 	);
 
 	return (
-		<header
-			ref={container}
-			className="nav-layout"
-		>
+		<header ref={container} className="nav-layout">
 			<Logo className="text-white text-xl" />
-			<Menu />
+			<nav className="flex gap-8 items-center">
+				<div id="contact-button">
+					<Link href="/contact" className="button hidden md:block">
+						Contact
+					</Link>
+				</div>
+				<Menu />
+			</nav>
 		</header>
 	);
 };

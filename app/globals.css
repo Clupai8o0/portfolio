@@ -87,3 +87,6 @@
 .menu-link-item {
 	clip-path: polygon(0 0, 120% 0, 100% 100%, 0% 120%);
 }
+.button {
+	@apply relative py-2 px-8 text-white text-base font-light overflow-hidden bg-transparent rounded-full transition-all duration-300 ease-in-out shadow-md hover:scale-105 hover:text-black hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-slate-50 before:to-white before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-full hover:before:left-0 border-[1px] border-white;
+}

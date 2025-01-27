@@ -6,11 +6,12 @@ import { animatePageOut } from "@/lib/animations";
 
 interface Props {
 	href: string;
+	id?: string;
 	className?: string;
 	children: React.ReactNode;
 }
 
-const Link = ({ href, className, children }: Props) => {
+const Link = ({ href, className, children, id }: Props) => {
 	const router = useRouter();
 	const pathname = usePathname();
 
@@ -22,7 +23,7 @@ const Link = ({ href, className, children }: Props) => {
 	};
 
 	return (
-		<button onClick={handleClick} className={className} role="link">
+		<button onClick={handleClick} className={className} role="link" id={id}>
 			{children}
 		</button>
 	);

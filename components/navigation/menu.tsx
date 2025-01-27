@@ -52,7 +52,7 @@ const Menu = () => {
 	}, [isMenuOpen]);
 
 	return (
-		<div ref={container}>
+		<div ref={container} className="flex items-center">
 			<button
 				className="text-white cursor-pointer text-xl font-sans"
 				onClick={toggleMenu}
