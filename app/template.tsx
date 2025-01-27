@@ -19,7 +19,7 @@ function Template({ children }: Props) {
 		if (addedValue > 100) return setCount(100);
 		setCount(addedValue);
 	};
-
+  
 	useEffect(() => {
 		const timeout = setTimeout(
 			updateCounter,

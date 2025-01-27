@@ -1,6 +1,7 @@
 import Bounded from "@/components/containers/bounded";
 import HeroContent from "@/components/content/hero-content";
 import Footer from "@/components/navigation/footer";
+
 import Navbar from "@/components/navigation/navbar";
 
 export default function Home() {

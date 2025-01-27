@@ -27,6 +27,7 @@ export function ColourfulText({ text }: { text: string }) {
 			setCount((prev) => prev + 1);
 		}, 5000);
 
+
 		return () => clearInterval(interval);
 	}, []);
 
