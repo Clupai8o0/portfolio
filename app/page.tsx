@@ -1,11 +1,19 @@
+"use client";
+
+import LocomotiveScroll from "locomotive-scroll";
+
+import Navbar from "@/components/navigation/navbar";
+import Footer from "@/components/navigation/footer";
 import Bounded from "@/components/containers/bounded";
 import HeroContent from "@/components/content/hero-content";
 import { Spotlight } from "@/components/content/spotlight";
-import Footer from "@/components/navigation/footer";
-
-import Navbar from "@/components/navigation/navbar";
+import { useEffect } from "react";
 
 export default function Home() {
+	useEffect(() => {
+		const scroll = new LocomotiveScroll();
+	});
+
 	return (
 		<main>
 			<Bounded
