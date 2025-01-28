@@ -37,6 +37,9 @@ function ClipImage() {
 				height: "100vh",
 				borderRadius: 0,
 			});
+			clipAnimation.to(".about-image", {
+				top: 0
+			}, "=")
 		},
 		{ scope: container }
 	);

@@ -36,6 +36,7 @@ export default function Home() {
 			<ClipImage />
 
 			<div className="h-screen w-screen"></div>
+			<div className="h-screen w-screen"></div>
 
 			<Footer />
 		</main>
