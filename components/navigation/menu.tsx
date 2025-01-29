@@ -80,7 +80,7 @@ const Menu = () => {
 					<div className="flex-[4] flex flex-col justify-between pt-32 lg:pt-16">
 						<div>
 							{links.map((link, index) => (
-								<div key={index} className="overflow-wrapper w-max">
+								<div key={index} className="overflow-wrapper-2 w-max">
 									{/* //! not so sure about this line */}
 									<div
 										className="menu-link-item-holder relative"
@@ -97,7 +97,7 @@ const Menu = () => {
 							))}
 						</div>
 
-						<div className="flex gap-2">
+						<div className="flex gap-2 text-black">
 							<div className="flex-1 flex flex-col justify-end">
 								{socials.map((social) => (
 									<a
