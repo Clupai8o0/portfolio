@@ -6,8 +6,8 @@ import React, { useRef } from "react";
 import { ColourfulText } from "./colorful-text";
 import gsap from "gsap";
 import Cover from "./cover";
-import SparklePop from "./sparkle-pop";
 import clsx from "clsx";
+import { SparklePop } from "./pop";
 
 const heroPhrase =
 	"Building Creative & Innovative Solutions that just make you go Wow!".split(
@@ -61,11 +61,7 @@ const HeroContent = () => {
 										return <ColourfulText text="Creative" />;
 									if (word === "Innovative") return <Cover>Innovative</Cover>;
 									if (word === "Solutions")
-										return (
-											<span className="from-yellow-100 bg-clip-text bg-gradient-to-b to-yellow-500 not-italic text-transparent font-sans font-medium">
-												Solutions
-											</span>
-										);
+										return <span className="text-solutions">Solutions</span>;
 									if (word === "Wow!")
 										return <span className="text-white font-medium">Wow!</span>;
 

@@ -8,6 +8,7 @@ import Bounded from "@/components/containers/bounded";
 import HeroContent from "@/components/content/hero-content";
 import ClipImage from "@/components/content/clip-image";
 import { Spotlight } from "@/components/content/spotlight";
+import About from "@/components/content/about";
 
 export default function Home() {
 	useEffect(() => {
@@ -36,7 +37,10 @@ export default function Home() {
 			<ClipImage />
 
 			<div className="h-screen w-screen"></div>
-			<div className="h-screen w-screen"></div>
+
+			<Bounded>
+				<About />
+			</Bounded>
 
 			<Footer />
 		</main>

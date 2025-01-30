@@ -43,6 +43,9 @@
 .p {
 	@apply px-4 md:px-8;
 }
+.text-solutions {
+	@apply from-yellow-100 bg-clip-text bg-gradient-to-b to-yellow-500 text-transparent font-sans font-medium;
+}
 
 /** Navigation */
 .nav-layout {
@@ -75,4 +78,36 @@
 
 .about-image {
 	@apply absolute left-1/2 -top-24 z-20 h-[60vh] w-96 origin-center -translate-x-1/2 overflow-hidden rounded-3xl md:w-[50vw];
+}
+
+/** About section */
+.holder {
+	position: relative;
+	width: 200px;
+	height: 50px;
+}
+.clip {
+	/* Clip edges, as some of the lines don't terminate nicely. */
+	overflow: hidden;
+}
+.circle {
+	position: absolute;
+	width: 200px;
+	height: 20px;
+	background: radial-gradient(
+		16px,
+		transparent,
+		transparent 4px,
+		red 4px,
+		red 10px,
+		transparent 11px
+	);
+	background-size: 30px 40px;
+}
+
+.circle2 {
+	/* Offset to make squigglies line up */
+	top: 20px;
+	left: 15px;
+	background-position: 0px -20px;
 }
