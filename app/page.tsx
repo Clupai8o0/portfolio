@@ -9,6 +9,7 @@ import HeroContent from "@/components/content/hero-content";
 import ClipImage from "@/components/content/clip-image";
 import { Spotlight } from "@/components/content/spotlight";
 import About from "@/components/content/about";
+import Skills from "@/components/content/skills";
 
 export default function Home() {
 	useEffect(() => {
@@ -41,6 +42,17 @@ export default function Home() {
 			<Bounded>
 				<About />
 			</Bounded>
+
+			<Bounded>
+				<h1 className='text-white'>Hi</h1>
+			</Bounded>
+			<Skills />
+			<Skills />
+			<Skills />
+			<Skills />
+
+			<div className="h-screen w-screen"></div>
+			<div className="h-screen w-screen"></div>
 
 			<Footer />
 		</main>
