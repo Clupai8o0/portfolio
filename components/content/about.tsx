@@ -8,7 +8,11 @@ import { HeartPop } from "./pop";
 
 function About() {
 	return (
-		<section className="min-h-screen w-full p">
+		<section
+			className="min-h-screen w-full p"
+			data-scroll
+			data-scroll-speed="0.3"
+		>
 			<div className="flex flex-wrap gap-2 md:gap-3 text-5xl md:text-6xl lg:text-8xl font-light">
 				{"Hi 👋, I'm Samridh Limbu. A creative developer that loves to make Innovative Solutions to real-world problems. I'm well-versed in web-development but my skills go beyond the browser. Besides coding, I love reading, making art, and spending time with my loved ones."
 					.split(" ")

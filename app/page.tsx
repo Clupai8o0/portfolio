@@ -10,6 +10,7 @@ import ClipImage from "@/components/content/clip-image";
 import { Spotlight } from "@/components/content/spotlight";
 import About from "@/components/content/about";
 import Skills from "@/components/content/skills";
+import Projects from "@/components/content/projects";
 
 export default function Home() {
 	useEffect(() => {
@@ -21,7 +22,7 @@ export default function Home() {
 	}, []);
 
 	return (
-		<main>
+		<main data-scroll-container>
 			<Bounded
 				parentClassName="h-[50rem] w-full bg-stone-950 bg-dot-white/[0.3] relative"
 				outerChildren={
@@ -51,7 +52,8 @@ export default function Home() {
 			<Skills />
 			<Skills />
 
-			<div className="h-screen w-screen"></div>
+			<Projects />
+
 			<div className="h-screen w-screen"></div>
 
 			<Footer />

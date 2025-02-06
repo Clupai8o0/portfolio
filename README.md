@@ -9,3 +9,4 @@
 - [] [Background glow](https://www.youtube.com/watch?v=Cc37uTnbEos&list=WL&index=1&t=196s)
 - [] [Skills Marquee](https://www.youtube.com/watch?v=rXDCAAkiC-s&t=552s)
 - [] [Projects](https://www.youtube.com/watch?v=1PYTqy6cg-o&t=45s)
+- [] Nav Menu Link Hover effect
