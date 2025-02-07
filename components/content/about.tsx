@@ -3,7 +3,7 @@
 import { generateKey } from "@/lib/utils";
 import React from "react";
 import Cover from "./cover";
-import { ColourfulText } from "./colorful-text";
+// import { ColourfulText } from "./colorful-text";
 import { HeartPop } from "./pop";
 
 function About() {
@@ -20,8 +20,8 @@ function About() {
 						<div key={generateKey()} className="overflow-wrapper-2 relative">
 							{word === "loved" && <HeartPop />}
 							{(() => {
-								if (word === "creative")
-									return <ColourfulText text="creative" />;
+								// if (word === "creative")
+								// 	return <ColourfulText text="creative" />;
 								if (word === "Innovative") return <Cover>Innovative</Cover>;
 								if (word === "Solutions")
 									return <span className="text-solutions">Solutions</span>;

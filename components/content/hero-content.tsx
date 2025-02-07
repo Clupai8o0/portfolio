@@ -3,11 +3,11 @@
 import { generateKey } from "@/lib/utils";
 import { useGSAP } from "@gsap/react";
 import React, { useRef } from "react";
-import { ColourfulText } from "./colorful-text";
 import gsap from "gsap";
 import Cover from "./cover";
 import clsx from "clsx";
 import { SparklePop } from "./pop";
+import GradientText from "./gradient-text";
 
 const heroPhrase =
 	"Building Creative & Innovative Solutions that just make you go Wow!".split(
@@ -58,7 +58,21 @@ const HeroContent = () => {
 							<div className={`word-${i} text-slate-200`}>
 								{(() => {
 									if (word === "Creative")
-										return <ColourfulText text="Creative" />;
+										return (
+											<GradientText
+												colors={[
+													"#ffbe0b",
+													"#fb5607",
+													"#ff006e",
+													"#8338ec",
+													"#3a86ff",
+												]}
+												animationSpeed={3}
+												showBorder={false}
+											>
+												Creative
+											</GradientText>
+										);
 									if (word === "Innovative") return <Cover>Innovative</Cover>;
 									if (word === "Solutions")
 										return <span className="text-solutions">Solutions</span>;
