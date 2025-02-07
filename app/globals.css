@@ -111,3 +111,43 @@
 	left: 15px;
 	background-position: 0px -20px;
 }
+
+/** Final CTA */
+.line {
+  position: relative;
+  margin: 0.5em 0;
+  width: max-content;
+  height: 28px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.line p {
+  position: relative;
+  font-size: 24px;
+  transform: translateY(30px);
+}
+
+.row {
+  position: relative;
+  width: 100%;
+  margin: 1em 0;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+.card {
+  position: relative;
+  width: 40%;
+  height: 360px;
+  border-radius: 0.75em;
+  overflow: hidden;
+  will-change: transform;
+}
+
+@media (max-width: 900px) {
+  .card {
+    width: 50%;
+    height: 240px;
+  }
+}

@@ -1,5 +1,6 @@
-import React from "react";
 import Bounded from "../containers/bounded";
+
+import { ReactLenis } from "lenis/react";
 
 function Projects() {
 	return (

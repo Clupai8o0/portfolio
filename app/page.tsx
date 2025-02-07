@@ -11,52 +11,49 @@ import { Spotlight } from "@/components/content/spotlight";
 import About from "@/components/content/about";
 import Skills from "@/components/content/skills";
 import Projects from "@/components/content/projects";
+import ReactLenis from "lenis/react";
+import CTA from "@/components/content/cta";
 
 export default function Home() {
-	useEffect(() => {
-		(async () => {
-			const LocomotiveScroll = (await import("locomotive-scroll")).default;
-
-			const locomotiveScroll = new LocomotiveScroll();
-		})();
-	}, []);
 
 	return (
-		<main data-scroll-container>
-			<Bounded
-				parentClassName="h-[50rem] w-full bg-stone-950 bg-dot-white/[0.3] relative"
-				outerChildren={
-					<>
-						<Spotlight />
-						<div className="absolute pointer-events-none inset-0 bg-stone-950 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-					</>
-				}
-			>
-				<Navbar />
-				<HeroContent />
-			</Bounded>
+		<ReactLenis root>
+			<main>
+				<Bounded
+					parentClassName="h-[50rem] w-full bg-stone-950 bg-dot-white/[0.3] relative"
+					outerChildren={
+						<>
+							<Spotlight />
+							<div className="absolute pointer-events-none inset-0 bg-stone-950 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+						</>
+					}
+				>
+					<Navbar />
+					<HeroContent />
+				</Bounded>
 
-			<ClipImage />
+				<ClipImage />
 
-			<div className="h-screen w-screen"></div>
+				<div className="h-screen w-screen"></div>
 
-			<Bounded>
-				<About />
-			</Bounded>
+				<Bounded>
+					<About />
+				</Bounded>
 
-			<Bounded>
-				<h1 className='text-white'>Hi</h1>
-			</Bounded>
-			<Skills />
-			<Skills />
-			<Skills />
-			<Skills />
+				<Bounded>
+					<h1 className="text-white">Hi</h1>
+				</Bounded>
+				<Skills />
+				<Skills />
+				<Skills />
+				<Skills />
 
-			<Projects />
+				<Projects />
 
-			<div className="h-screen w-screen"></div>
+				<CTA />
 
-			<Footer />
-		</main>
+				<Footer />
+			</main>
+		</ReactLenis>
 	);
 }

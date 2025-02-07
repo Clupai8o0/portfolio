@@ -42,7 +42,7 @@ function ClipImage() {
 	);
 
 	return (
-		<div className="min-h-screen w-screen" data-scroll data-scroll-speed="0.3">
+		<div className="min-h-screen w-screen">
 			<div className="relative w-screen h-screen" ref={container}>
 				<div className="h-dvh w-screen" id="clip">
 					<div className="mask-clip-path about-image">

@@ -12,6 +12,7 @@ interface Props {
 
 function Template({ children }: Props) {
 	const [count, setCount] = useState(0);
+	const [overflow, setOverflow] = useState("hidden");
 
 	const updateCounter = () => {
 		if (count === 100) return;
@@ -19,7 +20,7 @@ function Template({ children }: Props) {
 		if (addedValue > 100) return setCount(100);
 		setCount(addedValue);
 	};
-  
+
 	useEffect(() => {
 		const timeout = setTimeout(
 			updateCounter,
@@ -36,6 +37,7 @@ function Template({ children }: Props) {
 			});
 			animateLogoOut();
 			animatePageIn();
+			setOverflow("auto");
 		}
 		return () => clearTimeout(timeout);
 	}, [count]);
@@ -60,6 +62,7 @@ function Template({ children }: Props) {
 					</div>
 				</div>
 			</div>
+
 			{children}
 		</div>
 	);

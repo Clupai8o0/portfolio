@@ -13,6 +13,7 @@ export const animatePageIn = () => {
 			yPercent: -100,
 			duration: 0.8,
 			delay: 1,
+			ease: "power1.inOut"
 		});
 	}
 };
