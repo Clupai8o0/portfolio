@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
-export const animatePageIn = () => {
+export const animatePageIn = (delay?: number) => {
 	const banner = document.getElementById("banner");
 
 	if (banner) {
@@ -12,8 +12,8 @@ export const animatePageIn = () => {
 		}).to(banner, {
 			yPercent: -100,
 			duration: 0.8,
-			delay: 1,
-			ease: "power1.inOut"
+			delay,
+			ease: "power1.inOut",
 		});
 	}
 };
@@ -45,11 +45,12 @@ export const animateLogoIn = (delay?: number) => {
 		ease: "power4.out",
 	});
 };
-export const animateLogoOut = () => {
+export const animateLogoOut = (delay?: number) => {
 	gsap.to(".logo-letter", {
 		yPercent: 110,
 		duration: 0.3,
 		stagger: 0.05,
+		delay,
 		ease: "sine.in",
 	});
 };

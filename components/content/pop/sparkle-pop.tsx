@@ -16,7 +16,7 @@ const Spark = ({ id, className }: { id: string; className: string }) => (
 	/>
 );
 
-const SparklePop = () => {
+const SparklePop = ({ delay }: { delay?: number }) => {
 	const container = React.useRef(null);
 
 	const sparkleAnim = (id: string, x: number, y: number) => {
@@ -36,7 +36,7 @@ const SparklePop = () => {
 				duration: 0.8,
 				ease: "power4.out",
 				// delay: id === "#spark-1" ? 8 : 0,
-				delay: 8,
+				delay,
 			}
 			// "="
 		);
@@ -45,7 +45,7 @@ const SparklePop = () => {
 	useGSAP(
 		() => {
 			const mm = gsap.matchMedia();
-      
+
 			mm.add("(min-width: 900px)", () => {
 				sparkleAnim("#spark-1", -500, -700);
 				sparkleAnim("#spark-2", 400, 300);

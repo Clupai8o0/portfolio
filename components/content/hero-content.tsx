@@ -30,7 +30,7 @@ const HeroContent = () => {
 						xPercent: j === 2 ? 110 : j === 3 ? -110 : 0,
 						duration: 1,
 						ease: "power4.out",
-						delay: i === 0 ? 5.65 : 0,
+						delay: i === 0 ? 6.65 : 0,
 					},
 					">-0.75"
 				);
@@ -46,7 +46,7 @@ const HeroContent = () => {
 			<h1 className="flex flex-wrap justify-start items-center gap-2 md:gap-3 lg:gap-4 font-light font-sans text-6xl md:text-7xl lg:text-[108px] p">
 				{heroPhrase.map((word, i) => (
 					<div key={generateKey()} className="relative">
-						{word === "Wow!" && <SparklePop />}
+						{word === "Wow!" && <SparklePop delay={9} />}
 
 						{/* //* every other word */}
 						<div
