@@ -5,7 +5,6 @@ import React, { useRef } from "react";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { BackgroundGradient } from "../containers/background-gradient";
 
 gsap.registerPlugin(ScrollTrigger);
 function ClipImage() {
@@ -42,7 +41,9 @@ function ClipImage() {
 	);
 
 	return (
-		<div className="min-h-screen w-screen">
+		<div className="min-h-screen w-screen bg-stone-950 bg-dot-white/[0.3] relative">
+			<div className="absolute pointer-events-none inset-0 bg-stone-950 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+			
 			<div className="relative w-screen h-screen" ref={container}>
 				<div className="h-dvh w-screen" id="clip">
 					<div className="mask-clip-path about-image">
