@@ -11,6 +11,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import GradientText from "./gradient-text";
 import DecryptedText from "./decrypted-text";
 import TrueFocus from "./true-focus";
+import FallingText from "./falling-text";
 
 const aboutText = [
 	"Hi 👋, I'm Samridh Limbu. A creative developer that loves to make Innovative Solutions to real-world problems.",
@@ -40,7 +41,7 @@ function About() {
 						ease: "power1.out",
 						scrollTrigger: {
 							trigger: wrapper,
-							start: "top 60%",
+							start: "top 75%",
 							toggleActions: "play reverse play reverse",
 						},
 					}
@@ -51,7 +52,7 @@ function About() {
 
 	return (
 		<section
-			className="min-h-screen w-full p py-8 md:py-12 lg:py-20"
+			className="min-h-screen w-full p py-8 md:py-12 lg:py-20 relative"
 			ref={container}
 		>
 			<div className="flex flex-col gap-6 md:gap-10 text-5xl md:text-6xl lg:text-8xl font-light">
@@ -99,7 +100,17 @@ function About() {
 										if (word === "Innovative") return <Cover>Innovative</Cover>;
 										if (word === "Solutions")
 											return <span className="text-solutions">Solutions</span>;
-
+										if (word === "problems.")
+											return (
+												//todo: fix the sizing
+												<div className="lg:h-40 lg:w-full flex-1 flex justify-center border-b border-slate-600">
+													<FallingText
+														text="p r o b l e m s ."
+														trigger="scroll"
+														gravity={0.56}
+													/>
+												</div>
+											);
 										return word;
 									})()}
 								</span>
@@ -107,6 +118,14 @@ function About() {
 						))}
 					</section>
 				))}
+			</div>
+			<div className="h-64">
+				<FallingText
+					text="p r o b l e m s ."
+					trigger="scroll"
+					gravity={0.56}
+					fontSize="6rem"
+				/>
 			</div>
 		</section>
 	);
