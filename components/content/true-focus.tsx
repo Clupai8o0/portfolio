@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import GradientText from "./gradient-text";
 
 interface TrueFocusProps {
 	sentence?: string;
@@ -104,7 +105,17 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
 						onMouseEnter={() => handleMouseEnter(index)}
 						onMouseLeave={handleMouseLeave}
 					>
-						{word}
+						{word === "Creative" ? (
+							<GradientText
+								colors={["#ffbe0b", "#fb5607", "#ff006e", "#8338ec", "#3a86ff"]}
+								animationSpeed={3}
+								showBorder={false}
+							>
+								Creative
+							</GradientText>
+						) : (
+							word
+						)}
 					</span>
 				);
 			})}

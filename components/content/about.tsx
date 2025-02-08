@@ -87,30 +87,15 @@ function About() {
 											return (
 												<div className="mx-3 my-2">
 													<TrueFocus
-														sentence="Developer"
-														blurAmount={5}
+														sentence="Creative Developer"
+														blurAmount={10}
 														borderColor="blue"
 														animationDuration={2}
 														pauseBetweenAnimations={1}
 													/>
 												</div>
 											);
-										if (word === "creative")
-											return (
-												<GradientText
-													colors={[
-														"#ffbe0b",
-														"#fb5607",
-														"#ff006e",
-														"#8338ec",
-														"#3a86ff",
-													]}
-													animationSpeed={3}
-													showBorder={false}
-												>
-													Creative
-												</GradientText>
-											);
+										if (word === "creative") return;
 										if (word === "Innovative") return <Cover>Innovative</Cover>;
 										if (word === "Solutions")
 											return <span className="text-solutions">Solutions</span>;
