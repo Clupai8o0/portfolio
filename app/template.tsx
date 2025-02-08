@@ -27,8 +27,8 @@ function Template({ children }: Props) {
 		<div>
 			<div
 				id="banner"
-				// className="h-dvh w-screen fixed top-0 left-0 bg-transparent z-[1000]"
-				className="h-dvh w-screen fixed top-0 left-0 bg-stone-100 z-[1000]"
+				className="h-dvh w-screen fixed top-0 left-0 bg-transparent z-[1000]"
+				// className="h-dvh w-screen fixed top-0 left-0 bg-stone-100 z-[1000]"
 			>
 				<div className="h-full w-full absolute top-0 left-0 flex items-center justify-center p-24">
 					<Logo className="text-black text-4xl md:text-6xl" />

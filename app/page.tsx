@@ -13,9 +13,9 @@ import Skills from "@/components/content/skills";
 import Projects from "@/components/content/projects";
 import ReactLenis from "lenis/react";
 import CTA from "@/components/content/cta";
+import DecryptedText from "@/components/content/decrypted-text";
 
 export default function Home() {
-
 	return (
 		<ReactLenis root>
 			<main>
