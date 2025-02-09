@@ -44,7 +44,7 @@ function About() {
 						scrollTrigger: {
 							trigger: wrapper,
 							start: "top 75%",
-							toggleActions: "play reverse play reverse",
+							toggleActions: "play none play none",
 						},
 					}
 				);
