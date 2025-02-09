@@ -12,6 +12,8 @@ import GradientText from "./gradient-text";
 import DecryptedText from "./decrypted-text";
 import TrueFocus from "./true-focus";
 import FallingText from "./falling-text";
+import RotatingText from "./rotating-text";
+import ShinyText from "./shiny-text";
 
 const aboutText = [
 	"Hi 👋, I'm Samridh Limbu. A creative developer that loves to make Innovative Solutions to real-world problems.",
@@ -103,7 +105,7 @@ function About() {
 										if (word === "problems.")
 											return (
 												//todo: fix the sizing
-												<div className="lg:h-40 lg:w-full flex-1 flex justify-center border-b border-slate-600">
+												<div className="lg:h-56 lg:w-[1216px] flex justify-center">
 													<FallingText
 														text="p r o b l e m s ."
 														trigger="scroll"
@@ -111,6 +113,34 @@ function About() {
 													/>
 												</div>
 											);
+										if (word === "websites")
+											return (
+												<RotatingText
+													texts={["websites", "applications", "data-science"]}
+													//todo: perfect this later
+													mainClassName="px-2 sm:px-2 md:px-5 bg-blue-500 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-xl font-medium"
+													staggerFrom={"last"}
+													initial={{ y: "100%" }}
+													animate={{ y: 0 }}
+													exit={{ y: "-120%" }}
+													staggerDuration={0.025}
+													splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+													transition={{
+														type: "spring",
+														damping: 30,
+														stiffness: 400,
+													}}
+													rotationInterval={2000}
+												/>
+											);
+										if (word === "technology.")
+											return <ShinyText text="technology." speed={3} />;
+										// if (word === "constantly")
+										// 	return <ShinyText text="constantly" speed={3} />;
+										// if (word === "learning")
+										// 	return <ShinyText text="learning" speed={3} />;
+										// if (word === "new")
+										// 	return <ShinyText text="new" speed={3} />;
 										return word;
 									})()}
 								</span>
@@ -118,14 +148,6 @@ function About() {
 						))}
 					</section>
 				))}
-			</div>
-			<div className="h-64">
-				<FallingText
-					text="p r o b l e m s ."
-					trigger="scroll"
-					gravity={0.56}
-					fontSize="6rem"
-				/>
 			</div>
 		</section>
 	);
