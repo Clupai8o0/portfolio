@@ -88,6 +88,7 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
 				return (
 					<span
 						key={index}
+						// @ts-ignore
 						ref={(el) => (wordRefs.current[index] = el)}
 						className="relative cursor-pointer"
 						style={
