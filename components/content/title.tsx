@@ -2,20 +2,21 @@
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import React, { useRef } from "react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
-import Skill from "./skill";
-import Bounded from "../containers/bounded";
-import { useRef } from "react";
-import Title from "./title";
+interface Props {
+	text: string;
+}
 
 gsap.registerPlugin(ScrollTrigger);
-function Skills() {
+const Title = ({ text }: Props) => {
 	const container = useRef(null);
+
 	useGSAP(
 		() => {
 			gsap.fromTo(
-				".skill-wrapper",
+				".word",
 				{
 					y: 120,
 				},
@@ -24,7 +25,7 @@ function Skills() {
 					duration: 0.5,
 					ease: "power1.out",
 					scrollTrigger: {
-						trigger: ".skill-wrapper",
+						trigger: ".overflow-wrapper",
 						start: "top 75%",
 						toggleActions: "play none play none",
 					},
@@ -35,17 +36,17 @@ function Skills() {
 	);
 
 	return (
-		<section ref={container}>
-			<Bounded className="mb-12">
-				<Title text="My Skills" />
-			</Bounded>
-
-			<Skill text="Web-development" />
-			<Skill text="mobile-apps" />
-			{/* <Skill />
-        <Skill /> */}
-		</section>
+		<h1
+			className="text-white text-6xl md:text-7xl lg:text-[108px] text-center"
+			ref={container}
+		>
+			<div className="overflow-wrapper-2 flex gap-4 justify-center">
+				{text.split(" ").map((word) => (
+					<span className="word">{word}</span>
+				))}
+			</div>
+		</h1>
 	);
-}
+};
 
-export default Skills;
+export default Title;

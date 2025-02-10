@@ -54,12 +54,12 @@ const Skill = ({ text }: Props) => {
 				className="wrapper overflow-hidden skill-wrapper"
 				ref={container}
 			>
-				<div className="skill-row mb-8 flex items-center justify-center gap-4 text-zinc-800">
+				<div className="skill-row mb-6 md:mb-8 flex items-center justify-center gap-4 text-zinc-800">
 					{Array.from({ length: 15 }, (_, i) => (
 						<React.Fragment key={i}>
 							<span
 								className={clsx(
-									"skill-item text-6xl uppercase tracking-tighter font-light whitespace-nowrap",
+									"skill-item text-4xl md:text-6xl uppercase tracking-tighter font-light whitespace-nowrap",
 									(i === 7 && "text-white font-medium") || "inherit"
 								)}
 								style={{ color: i === 7 && "white" ? "white" : "inherit" }}

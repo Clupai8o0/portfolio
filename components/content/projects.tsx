@@ -1,13 +1,13 @@
 import Bounded from "../containers/bounded";
-
-import { ReactLenis } from "lenis/react";
+import Title from "./title";
 
 function Projects() {
 	return (
-		<section>
-			<Bounded>
-				<h1 className="text-white">Projects</h1>
+		<section className="mt-24">
+			<Bounded className="mb-12">
+				<Title text="My Projects" />
 			</Bounded>
+
 			<div className="flex">
 				<div className="w-1/2">
 					<div className="h-screen w-full text-white">
