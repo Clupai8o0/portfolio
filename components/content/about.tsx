@@ -1,16 +1,17 @@
 "use client";
 
-import { generateKey } from "@/lib/utils";
-import React, { useEffect, useRef } from "react";
-import Cover from "./cover";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import GradientText from "./gradient-text";
-import TrueFocus from "./true-focus";
-import FallingText from "./falling-text";
-import RotatingText from "./rotating-text";
-import ShinyText from "./shiny-text";
 import clsx from "clsx";
+import gsap from "gsap";
+import React, { useEffect, useRef } from "react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
+import { generateKey } from "@/lib/utils";
+
+import Cover from "./cover";
+import ShinyText from "./shiny-text";
+import TrueFocus from "./true-focus";
+import GradientText from "./gradient-text";
+import RotatingText from "./rotating-text";
 
 const aboutText = [
 	"Hi 👋, I'm Samridh Limbu. A creative developer that loves to make Innovative Solutions to real-world problems.",
@@ -63,66 +64,39 @@ function About() {
 						{section.split(" ").map((word) => (
 							<div
 								key={generateKey()}
-								className={clsx("overflow-wrapper-2 relative about-wrapper", word === "problems." && "overflow-wrapper-3")}
+								className={clsx(
+									"overflow-wrapper-2 relative about-wrapper",
+									word === "problems." && "overflow-wrapper-3",
+									word === "Developer" && "overflow-wrapper-2-full",
+									word === "Innovative" && "overflow-wrapper-2-full"
+								)}
 							>
 								<span className="block about-word">
 									{(() => {
-										if (word === "Limbu.") return;
 										if (word === "developer")
 											return (
 												<div className="mx-3 my-2">
-													<TrueFocus
-														sentence="Developer"
-														blurAmount={5}
-														borderColor="blue"
-														animationDuration={2}
-														pauseBetweenAnimations={1}
-													/>
+													<TrueFocus sentence="Developer" borderColor="blue" />
 												</div>
 											);
-										if (word === "creative") return (
-											<GradientText
-												colors={[
-													"#ffbe0b",
-													"#fb5607",
-													"#ff006e",
-													"#8338ec",
-													"#3a86ff",
-												]}
-												animationSpeed={3}
-												showBorder={false}
-											>
-												Creative
-											</GradientText>
-										);
+										if (word === "creative")
+											return <GradientText>Creative</GradientText>;
 										if (word === "Innovative") return <Cover>Innovative</Cover>;
 										if (word === "Solutions")
 											return <span className="text-solutions">Solutions</span>;
 										if (word === "problems.")
 											return (
 												<span className="">
-													<u className="decoration-wavy decoration-red-600 md:underline-offset-[16px]">problems</u>.
+													<u className="decoration-wavy decoration-red-600 md:underline-offset-[16px]">
+														problems
+													</u>
+													.
 												</span>
 											);
+
 										if (word === "websites")
 											return (
-												<RotatingText
-													texts={["websites", "applications"]}
-													//todo: perfect this later
-													mainClassName="px-2 sm:px-2 md:px-5 bg-blue-500 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-xl font-medium"
-													staggerFrom={"last"}
-													initial={{ y: "100%" }}
-													animate={{ y: 0 }}
-													exit={{ y: "-120%" }}
-													staggerDuration={0.025}
-													splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-													transition={{
-														type: "spring",
-														damping: 30,
-														stiffness: 400,
-													}}
-													rotationInterval={2000}
-												/>
+												<RotatingText texts={["websites", "applications"]} />
 											);
 										if (word === "technology.")
 											return <ShinyText text="technology." speed={3} />;

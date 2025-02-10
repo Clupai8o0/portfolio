@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import ReactLenis from "lenis/react";
 
 import Navbar from "@/components/navigation/navbar";
 import Footer from "@/components/navigation/footer";
@@ -11,9 +11,7 @@ import { Spotlight } from "@/components/content/spotlight";
 import About from "@/components/content/about";
 import Skills from "@/components/content/skills";
 import Projects from "@/components/content/projects";
-import ReactLenis from "lenis/react";
 import CTA from "@/components/content/cta";
-import DecryptedText from "@/components/content/decrypted-text";
 
 export default function Home() {
 	return (

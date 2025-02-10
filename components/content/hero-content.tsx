@@ -1,11 +1,13 @@
 "use client";
 
-import { generateKey } from "@/lib/utils";
+import clsx from "clsx";
+import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import React, { useRef } from "react";
-import gsap from "gsap";
+
+import { generateKey } from "@/lib/utils";
+
 import Cover from "./cover";
-import clsx from "clsx";
 import SparklePop from "./sparkle-pop";
 import GradientText from "./gradient-text";
 
@@ -58,21 +60,7 @@ const HeroContent = () => {
 							<div className={`word-${i} text-slate-200`}>
 								{(() => {
 									if (word === "Creative")
-										return (
-											<GradientText
-												colors={[
-													"#ffbe0b",
-													"#fb5607",
-													"#ff006e",
-													"#8338ec",
-													"#3a86ff",
-												]}
-												animationSpeed={3}
-												showBorder={false}
-											>
-												Creative
-											</GradientText>
-										);
+										return <GradientText>Creative</GradientText>;
 									if (word === "Innovative") return <Cover>Innovative</Cover>;
 									if (word === "Solutions")
 										return <span className="text-solutions">Solutions</span>;
