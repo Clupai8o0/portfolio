@@ -55,7 +55,7 @@ function About() {
 			className="min-h-screen w-full p pt-8 md:pt-12 pb-16 md:pb-24 lg:pb-32 relative"
 			ref={container}
 		>
-			<div className="flex flex-col gap-6 md:gap-10 text-5xl md:text-6xl lg:text-8xl font-light">
+			<div className="flex flex-col gap-10 lg:gap-20 text-5xl md:text-6xl lg:text-8xl font-light">
 				{aboutText.map((section) => (
 					<section
 						className="about-section w-full flex items-center flex-wrap justify-start gap-2 md:gap-3"

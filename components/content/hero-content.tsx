@@ -53,7 +53,7 @@ const HeroContent = () => {
 						{/* //* every other word */}
 						<div
 							className={clsx(
-								(word === "Innovative" && "overflow-wrapper-2-full") ||
+								(word === "Innovative" && "overflow-wrapper-full") ||
 									"overflow-wrapper-2"
 							)}
 						>

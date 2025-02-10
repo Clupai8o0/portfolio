@@ -63,6 +63,9 @@
 .overflow-wrapper {
 	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
+.overflow-wrapper-full {
+	clip-path: polygon(-10% -10%, 100% -10%, 100% 100%, -10% 100%);
+}
 .overflow-wrapper-2 {
 	clip-path: polygon(0 0, 100% 0, 100% 120%, 0% 120%);
 }
