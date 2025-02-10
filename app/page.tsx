@@ -38,12 +38,6 @@ export default function Home() {
 					<About />
 				</Bounded>
 
-				<Bounded>
-					<h1 className="text-white">Hi</h1>
-				</Bounded>
-				<Skills />
-				<Skills />
-				<Skills />
 				<Skills />
 
 				<Projects />

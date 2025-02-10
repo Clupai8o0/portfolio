@@ -1,68 +1,73 @@
 "use client";
 
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import React, { useLayoutEffect, useRef } from "react";
+
+import Skill from "./skill";
 import Bounded from "../containers/bounded";
-import { Circle } from "lucide-react";
+import { useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const Skills = () => {
+function Skills() {
 	const container = useRef(null);
-
-	useLayoutEffect(() => {
-		let ctx = gsap.context(() => {
-			const tl = gsap.timeline({
-				scrollTrigger: {
-					pin: true,
-					start: "top bottom",
-					end: "bottom top",
-					scrub: 4,
-				},
-			});
-
-			tl.fromTo(
-				".skills-row",
+	useGSAP(
+		() => {
+			gsap.fromTo(
+				".word",
 				{
-					x: (i) => {
-						return i % 2 === 0
-							? gsap.utils.random(600, 400)
-							: gsap.utils.random(-600, -400);
-					},
+					y: 120,
 				},
 				{
-					x: (i) => {
-						return i % 2 === 0
-							? gsap.utils.random(-600, -400)
-							: gsap.utils.random(600, 400);
+					y: 0,
+					duration: 0.5,
+					ease: "power1.out",
+					scrollTrigger: {
+						trigger: ".overflow-wrapper",
+						start: "top 75%",
+						toggleActions: "play none play none",
 					},
 				}
 			);
-		}, container);
 
-		return () => ctx.revert();
-	});
+			gsap.fromTo(
+				".skill-wrapper",
+				{
+					y: 120,
+				},
+				{
+					y: 0,
+					duration: 0.5,
+					ease: "power1.out",
+					scrollTrigger: {
+						trigger: ".skill-wrapper",
+						start: "top 75%",
+						toggleActions: "play none play none",
+					},
+				}
+			);
+		},
+		{ scope: container }
+	);
 
 	return (
-		<section className="wrapper overflow-hidden" ref={container}>
-			<div className="skills-row mb-8 flex items-center justify-center gap-4 text-slate-700">
-				{Array.from({ length: 15 }, (_, i) => (
-					<React.Fragment key={i}>
-						<span
-							className="skill-item text-8xl font-extrabold uppercase tracking-tighter"
-							style={{ color: i === 7 && "#808080" ? "#808080" : "inherit" }}
-						>
-							Tech
-						</span>
-						<span className="text-3xl">
-							<Circle />
-						</span>
-					</React.Fragment>
-				))}
-			</div>
+		<section ref={container}>
+			<Bounded className="mb-12">
+				<h1 className="skills-title text-white text-6xl md:text-7xl lg:text-[108px] text-center">
+					<div className="overflow-wrapper flex gap-4 justify-center">
+						{"My Skills".split(" ").map((word) => (
+							<span className="word">{word}</span>
+						))}
+					</div>
+				</h1>
+			</Bounded>
+
+			<Skill text="Web-development" />
+			<Skill text="mobile-apps" />
+        {/* <Skill />
+        <Skill /> */}
 		</section>
 	);
-};
+}
 
 export default Skills;
