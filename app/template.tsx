@@ -25,7 +25,7 @@ function Template({ children }: Props) {
 
 	return (
 		<div>
-			{/* <div
+			<div
 				id="banner"
 				className="h-dvh w-screen fixed top-0 left-0 bg-transparent z-[1000]"
 				// className="h-dvh w-screen fixed top-0 left-0 bg-stone-100 z-[1000]"
@@ -44,7 +44,7 @@ function Template({ children }: Props) {
 						</div>
 					</div>
 				</div>
-			</div> */}
+			</div>
 
 			{children}
 		</div>

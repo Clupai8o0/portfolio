@@ -6,7 +6,7 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import Cover from "./cover";
 import clsx from "clsx";
-import { SparklePop } from "./pop";
+import SparklePop from "./sparkle-pop";
 import GradientText from "./gradient-text";
 
 const heroPhrase =

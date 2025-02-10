@@ -3,9 +3,6 @@
 import { generateKey } from "@/lib/utils";
 import React, { useEffect, useRef } from "react";
 import Cover from "./cover";
-// import { ColourfulText } from "./colorful-text";
-import { HeartPop } from "./pop";
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import GradientText from "./gradient-text";
@@ -54,7 +51,7 @@ function About() {
 
 	return (
 		<section
-			className="min-h-screen w-full p py-8 md:py-12 lg:py-20 relative"
+			className="min-h-screen w-full p pt-8 md:pt-12 pb-16 md:pb-24 lg:pb-32 relative"
 			ref={container}
 		>
 			<div className="flex flex-col gap-6 md:gap-10 text-5xl md:text-6xl lg:text-8xl font-light">
@@ -104,7 +101,7 @@ function About() {
 										if (word === "problems.")
 											return (
 												<span className="">
-													<u className="decoration-wavy decoration-red-600 lgunderline-offset-[16px]">problems</u>.
+													<u className="decoration-wavy decoration-red-600 md:underline-offset-[16px]">problems</u>.
 												</span>
 											);
 										if (word === "websites")
