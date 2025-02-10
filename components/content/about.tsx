@@ -9,16 +9,16 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import GradientText from "./gradient-text";
-import DecryptedText from "./decrypted-text";
 import TrueFocus from "./true-focus";
 import FallingText from "./falling-text";
 import RotatingText from "./rotating-text";
 import ShinyText from "./shiny-text";
+import clsx from "clsx";
 
 const aboutText = [
 	"Hi 👋, I'm Samridh Limbu. A creative developer that loves to make Innovative Solutions to real-world problems.",
 	"I'm skilled in developing websites and I'm constantly learning new technology.",
-	"Besides coding, I love reading, making art, and spending time with my loved ones.",
+	// "Besides coding, I love reading, making art, and spending time with my loved ones.",
 ];
 
 gsap.registerPlugin(ScrollTrigger);
@@ -66,57 +66,51 @@ function About() {
 						{section.split(" ").map((word) => (
 							<div
 								key={generateKey()}
-								className="overflow-wrapper-2 relative about-wrapper"
+								className={clsx("overflow-wrapper-2 relative about-wrapper", word === "problems." && "overflow-wrapper-3")}
 							>
 								<span className="block about-word">
 									{(() => {
-										if (word === "Samridh")
-											return (
-												<DecryptedText
-													text="Samridh"
-													animateOn="view"
-													revealDirection="start"
-												/>
-											);
-										if (word === "Limbu.")
-											return (
-												<DecryptedText
-													text="Limbu."
-													animateOn="view"
-													revealDirection="start"
-												/>
-											);
+										if (word === "Limbu.") return;
 										if (word === "developer")
 											return (
 												<div className="mx-3 my-2">
 													<TrueFocus
-														sentence="Creative Developer"
-														blurAmount={10}
+														sentence="Developer"
+														blurAmount={5}
 														borderColor="blue"
 														animationDuration={2}
 														pauseBetweenAnimations={1}
 													/>
 												</div>
 											);
-										if (word === "creative") return;
+										if (word === "creative") return (
+											<GradientText
+												colors={[
+													"#ffbe0b",
+													"#fb5607",
+													"#ff006e",
+													"#8338ec",
+													"#3a86ff",
+												]}
+												animationSpeed={3}
+												showBorder={false}
+											>
+												Creative
+											</GradientText>
+										);
 										if (word === "Innovative") return <Cover>Innovative</Cover>;
 										if (word === "Solutions")
 											return <span className="text-solutions">Solutions</span>;
 										if (word === "problems.")
 											return (
-												//todo: fix the sizing
-												<div className="lg:h-56 lg:w-[1216px] flex justify-center">
-													<FallingText
-														text="p r o b l e m s ."
-														trigger="scroll"
-														gravity={0.56}
-													/>
-												</div>
+												<span className="">
+													<u className="decoration-wavy decoration-red-600 lgunderline-offset-[16px]">problems</u>.
+												</span>
 											);
 										if (word === "websites")
 											return (
 												<RotatingText
-													texts={["websites", "applications", "data-science"]}
+													texts={["websites", "applications"]}
 													//todo: perfect this later
 													mainClassName="px-2 sm:px-2 md:px-5 bg-blue-500 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-xl font-medium"
 													staggerFrom={"last"}
@@ -135,12 +129,7 @@ function About() {
 											);
 										if (word === "technology.")
 											return <ShinyText text="technology." speed={3} />;
-										// if (word === "constantly")
-										// 	return <ShinyText text="constantly" speed={3} />;
-										// if (word === "learning")
-										// 	return <ShinyText text="learning" speed={3} />;
-										// if (word === "new")
-										// 	return <ShinyText text="new" speed={3} />;
+
 										return word;
 									})()}
 								</span>
