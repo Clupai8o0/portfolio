@@ -35,7 +35,7 @@ function Skills() {
 	);
 
 	return (
-		<section ref={container}>
+		<section ref={container} id="skills">
 			<Bounded className="mb-12">
 				<Title text="My Skills" />
 			</Bounded>

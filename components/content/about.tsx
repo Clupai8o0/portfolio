@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import gsap from "gsap";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import { generateKey } from "@/lib/utils";
@@ -12,6 +12,11 @@ import ShinyText from "./shiny-text";
 import TrueFocus from "./true-focus";
 import GradientText from "./gradient-text";
 import RotatingText from "./rotating-text";
+import { useLenis } from "lenis/react";
+import Snap from "lenis/snap";
+import { scrollSnapSettings } from "@/lib/animations";
+import { useGSAP } from "@gsap/react";
+// import Lenis from "lenis";
 
 const aboutText = [
 	"Hi 👋, I'm Samridh Limbu. A creative developer that loves to make Innovative Solutions to real-world problems.",
@@ -20,6 +25,7 @@ const aboutText = [
 ];
 
 gsap.registerPlugin(ScrollTrigger);
+
 function About() {
 	const container = useRef(null);
 
@@ -42,18 +48,23 @@ function About() {
 						scrollTrigger: {
 							trigger: wrapper,
 							start: "top 75%",
-							toggleActions: "play none play none",
+							toggleActions: "play reverse play reverse",
 						},
 					}
 				);
 			});
 		});
+
+		return () => {
+			ScrollTrigger.killAll();
+		};
 	}, []);
 
 	return (
 		<section
 			className="min-h-screen w-full p pt-8 md:pt-12 pb-16 md:pb-24 lg:pb-32 relative"
 			ref={container}
+			id="about"
 		>
 			<div className="flex flex-col gap-10 lg:gap-20 text-5xl md:text-6xl lg:text-8xl font-light">
 				{aboutText.map((section) => (
@@ -95,9 +106,7 @@ function About() {
 											);
 
 										if (word === "websites")
-											return (
-												<RotatingText texts={["websites", "applications"]} />
-											);
+											return <RotatingText texts={["websites"]} />;
 										if (word === "technology.")
 											return <ShinyText text="technology." speed={3} />;
 

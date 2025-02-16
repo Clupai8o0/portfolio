@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import React, { useRef } from "react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { generateKey } from "@/lib/utils";
 
 interface Props {
 	text: string;
@@ -25,7 +26,7 @@ const Title = ({ text }: Props) => {
 					duration: 0.5,
 					ease: "power1.out",
 					scrollTrigger: {
-						trigger: ".overflow-wrapper",
+						trigger: ".overflow-wrapper-2",
 						start: "top 75%",
 						toggleActions: "play none play none",
 					},
@@ -42,7 +43,7 @@ const Title = ({ text }: Props) => {
 		>
 			<div className="overflow-wrapper-2 flex gap-4 justify-center">
 				{text.split(" ").map((word) => (
-					<span className="word">{word}</span>
+					<span className="word block" key={generateKey()}>{word}</span>
 				))}
 			</div>
 		</h1>

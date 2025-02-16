@@ -60,7 +60,7 @@ const Skill = ({ text }: Props) => {
 							<span
 								className={clsx(
 									"skill-item text-4xl md:text-6xl uppercase tracking-tighter font-light whitespace-nowrap",
-									(i === 7 && "text-white font-medium") || "inherit"
+									(i === 8 && "text-white font-medium") || "inherit"
 								)}
 								style={{ color: i === 7 && "white" ? "white" : "inherit" }}
 							>

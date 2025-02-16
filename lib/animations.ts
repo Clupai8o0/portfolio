@@ -1,4 +1,5 @@
 import gsap from "gsap";
+import { SnapOptions } from "lenis/snap";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 export const animatePageIn = (delay?: number) => {
@@ -53,4 +54,18 @@ export const animateLogoOut = (delay?: number) => {
 		delay,
 		ease: "sine.in",
 	});
+};
+
+export const scrollSnapSettings: SnapOptions = {
+	type: "proximity",
+	lerp: 0.1,
+	duration: 0.8,
+	velocityThreshold: 2,
+	easing: (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2),
+	// onSnapStart: (snap) => {
+	// 	console.log("snap start", snap);
+	// },
+	// onSnapComplete: (snap) => {
+	// 	console.log("snap finish", snap);
+	// },
 };
