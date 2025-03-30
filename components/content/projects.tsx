@@ -30,15 +30,15 @@ const data = [
 ];
 
 function Projects() {
-	useLenis((lenis) => {
-		const snap = new Snap(lenis, scrollSnapSettings);
-		snap.addElement(document.getElementById<HTMLDivElement>("project-1"), {
-			align: "center",
-		});
-		snap.addElement(document.getElementById<HTMLDivElement>("project-2"), {
-			align: "center",
-		});
-	}, []);
+	// useLenis((lenis) => {
+	// 	const snap = new Snap(lenis, scrollSnapSettings);
+	// 	snap.addElement(document.getElementById<HTMLDivElement>("project-1"), {
+	// 		align: "center",
+	// 	});
+	// 	snap.addElement(document.getElementById<HTMLDivElement>("project-2"), {
+	// 		align: "center",
+	// 	});
+	// }, []);
 
 	return (
 		<section className="mt-24">
