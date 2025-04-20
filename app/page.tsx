@@ -30,7 +30,7 @@ export default function Home() {
 					<HeroContent />
 				</Bounded>
 
-				<ClipImage />
+				{/* <ClipImage /> */}
 
 				<div className="h-screen w-screen"></div>
 
