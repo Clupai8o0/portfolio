@@ -4,9 +4,10 @@ import React, {
 	useEffect,
 	useImperativeHandle,
 	useMemo,
+	useRef,
 	useState,
 } from "react";
-import { motion, AnimatePresence, Transition } from "framer-motion";
+import { motion, AnimatePresence, Transition, useInView } from "framer-motion";
 
 function cn(...classes: (string | undefined | null | boolean)[]): string {
 	return classes.filter(Boolean).join(" ");
@@ -68,6 +69,8 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
 		ref
 	) => {
 		const [currentTextIndex, setCurrentTextIndex] = useState<number>(0);
+		const containerRef = useRef<HTMLSpanElement | null>(null);
+		const isInView = useInView(containerRef, { amount: 0.3, once: false });
 
 		const splitIntoCharacters = (text: string): string[] => {
 			if (typeof Intl !== "undefined" && Intl.Segmenter) {
@@ -187,13 +190,14 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
 		);
 
 		useEffect(() => {
-			if (!auto) return;
+			if (!auto || !isInView) return;
 			const intervalId = setInterval(next, rotationInterval);
 			return () => clearInterval(intervalId);
-		}, [next, rotationInterval, auto]);
+		}, [next, rotationInterval, auto, isInView]);
 
 		return (
 			<motion.span
+				ref={containerRef}
 				className={cn(
 					"flex flex-wrap whitespace-pre-wrap relative",
 					mainClassName
