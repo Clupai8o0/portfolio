@@ -106,7 +106,7 @@ function About() {
 											);
 
 										if (word === "websites")
-											return <RotatingText texts={["websites"]} />;
+											return <RotatingText texts={["websites", "applications", "cloud", "automations", "design"]} />;
 										if (word === "technology.")
 											return <ShinyText text="technology." speed={3} />;
 

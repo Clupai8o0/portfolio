@@ -42,6 +42,10 @@ function Skills() {
 
 			<Skill text="Web-development" />
 			<Skill text="mobile-apps" />
+			<Skill text="cloud-technology" />
+			<Skill text="automations" />
+			<Skill text="project-management" />
+			<Skill text="design" />
 			{/* <Skill />
         <Skill /> */}
 		</section>
