@@ -68,10 +68,11 @@ const colors = [
 function Projects() {
 	const [activeCard, setActiveCard] = useState(0);
 	const containerRef = useRef<HTMLDivElement>(null);
-	
+	const imageRef = useRef<HTMLImageElement>(null);
+
 	useLayoutEffect(() => {
 		gsap.registerPlugin(ScrollTrigger);
-		
+
 		const breakpoints = data.map((_, index) => index / data.length);
 		const snapTo = gsap.utils.snap(breakpoints);
 
@@ -95,17 +96,21 @@ function Projects() {
 
 					// const snapped = snapTo(self.progress);
 					// setActiveCard(breakpoints.indexOf(snapped));
-					
 				},
 			});
-		}, [containerRef, activeCard])
+		}, [containerRef, activeCard]);
 
 		return () => context.revert();
-	}, [])
+	}, []);
 
 	useEffect(() => {
-		console.log("Active card:", activeCard);
-	}, [activeCard])
+		if (!imageRef.current) return;
+		gsap.fromTo(
+			imageRef.current,
+			{ opacity: 0, scale: 0.98 },
+			{ opacity: 1, scale: 1, duration: 0.5, ease: "power2.out" }
+		);
+	}, [activeCard]);
 
 	return (
 		<section className="mt-24">
@@ -161,6 +166,7 @@ function Projects() {
 						<div className="slide">
 							<div className="slide-bg-img">
 								<img
+									ref={imageRef}
 									src={data[activeCard].img}
 									alt={data[activeCard].title}
 									className="h-screen object-cover object-left"
