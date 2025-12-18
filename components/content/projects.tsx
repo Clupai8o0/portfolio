@@ -1,29 +1,52 @@
 "use client";
 
-import Snap from "lenis/snap";
-import { useLenis } from "lenis/react";
-
 import { cn, generateKey } from "@/lib/utils";
 
 import Bounded from "../containers/bounded";
 import Title from "./title";
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { scrollSnapSettings } from "@/lib/animations";
 import { Badge } from "../ui/badge";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
 
 const data = [
 	{
-		id: "project-1",
-		title: "Project 1",
-		tags: ["tag 1", "tag 2", "tag 3"],
+		id: "govchat",
+		title: "GovChat",
+		tags: ["RAG", "Next.js", "FastAPI", "VectorDB", "LLM Apps"],
 		description:
-			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni praesentium dolorem labore atque, in deleniti ex, ea cupiditate quis nostrum dolores, repellat ad quisquam earum illo molestiae maiores eius laborum!",
+			"GovChat is an AI-powered web app that lets users explore Australian government datasets using natural-language questions. It combines a Next.js frontend with a Python FastAPI backend to run a retrieval-augmented generation pipeline for grounded, contextual answers.",
 		img: "/img.jpg",
 	},
 	{
-		id: "project-2",
-		title: "Project 2",
-		tags: ["tag 1", "tag 2", "tag 3"],
+		id: "notes-app",
+		title: "Notes App (DevOps Pipeline)",
+		tags: ["MERN", "TypeScript", "Docker", "Jenkins", "AWS", "Observability"],
+		description:
+			"A full-stack note-taking app built with a production-style DevOps pipeline. The system is containerized and deployed on AWS, with CI/CD stages covering build, test, code quality, security scanning, and monitoring—built to reflect real engineering workflows, not just “it runs on my laptop.”",
+		img: "/notes-app.png",
+	},
+	{
+		id: "nmmun",
+		title: "NMMUN",
+		tags: ["Production Web", "Next.js", "SEO", "UX/UI", "Live Event"],
+		description:
+			"A production website/template built for New Millennium Model United Nations (NMMUN), used as the event’s public information hub. Designed for clarity, performance, and fast content updates under live-event constraints.",
+		img: "/img.jpg",
+	},
+	{
+		id: "krishnaveni",
+		title: "Krishnaveni School Website",
+		tags: ["Freelance", "Next.js", "SEO", "Conversion", "Real Client", "CMS"],
+		description:
+			"A production website built for Krishnaveni School, integrating Sanity CMS to allow non-technical staff to manage content independently. The system focuses on usability, accessibility, and SEO, enabling the school to update announcements, pages, and information without developer intervention.",
+		img: "/img.jpg",
+	},
+	{
+		id: "pas",
+		title: "PAS—Password Manager",
+		tags: ["Security", "Full-Stack", "Auth", "Data Handling", "Product Build"],
 		description:
 			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni praesentium dolorem labore atque, in deleniti ex, ea cupiditate quis nostrum dolores, repellat ad quisquam earum illo molestiae maiores eius laborum!",
 		img: "/img.jpg",
@@ -43,15 +66,46 @@ const colors = [
 ];
 
 function Projects() {
-	// useLenis((lenis) => {
-	// 	const snap = new Snap(lenis, scrollSnapSettings);
-	// 	snap.addElement(document.getElementById<HTMLDivElement>("project-1"), {
-	// 		align: "center",
-	// 	});
-	// 	snap.addElement(document.getElementById<HTMLDivElement>("project-2"), {
-	// 		align: "center",
-	// 	});
-	// }, []);
+	const [activeCard, setActiveCard] = useState(0);
+	const containerRef = useRef<HTMLDivElement>(null);
+	
+	useLayoutEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
+		
+		const breakpoints = data.map((_, index) => index / data.length);
+		const snapTo = gsap.utils.snap(breakpoints);
+
+		const context = gsap.context(() => {
+			ScrollTrigger.create({
+				trigger: containerRef.current,
+				start: "top top",
+				end: "bottom bottom",
+				scrub: true,
+				onUpdate: (self) => {
+					const latest = self.progress;
+					const closest = breakpoints.reduce(
+						(acc, breakpoint, index) =>
+							Math.abs(latest - breakpoint) <
+							Math.abs(latest - breakpoints[acc])
+								? index
+								: acc,
+						0
+					);
+					setActiveCard(closest);
+
+					// const snapped = snapTo(self.progress);
+					// setActiveCard(breakpoints.indexOf(snapped));
+					
+				},
+			});
+		}, [containerRef, activeCard])
+
+		return () => context.revert();
+	}, [])
+
+	useEffect(() => {
+		console.log("Active card:", activeCard);
+	}, [activeCard])
 
 	return (
 		<section className="mt-24">
@@ -61,13 +115,13 @@ function Projects() {
 			</Bounded>
 
 			<div className="relative p">
-				<div className="max-w-7xl mx-auto">
+				<div className="max-w-7xl mx-auto" ref={containerRef}>
 					<div className="w-full lg:w-1/2">
-						{data.map(({ title, tags, description, id }) => (
+						{data.map(({ title, tags, description, id, img }) => (
 							<div key={generateKey()} id={id}>
 								<div className="w-full h-1/3 lg:hidden">
 									<img
-										src="/img.jpg"
+										src={data[activeCard].img}
 										alt=""
 										className="h-full w-full object-cover"
 									/>
@@ -106,7 +160,11 @@ function Projects() {
 					<div className="w-1/2 h-screen top-0 left-1/2 sticky">
 						<div className="slide">
 							<div className="slide-bg-img">
-								<img src="/img.jpg" alt="" className="h-screen object-cover" />
+								<img
+									src={data[activeCard].img}
+									alt={data[activeCard].title}
+									className="h-screen object-cover object-left"
+								/>
 							</div>
 						</div>
 					</div>
