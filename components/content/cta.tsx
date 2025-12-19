@@ -5,6 +5,10 @@ import Logo from "../navigation/logo";
 import gsap from "gsap";
 import { generateKey } from "@/lib/utils";
 
+const imgs = [
+	"/govchat.png", "/notes-app.png", "/nmmun.png", "/krishnaveni.png", "/pas.png", "/thurman.png"
+]
+
 const generateRows = () => {
 	const rows = [];
 	for (let i = 1; i <= 3; i++) {
@@ -12,7 +16,7 @@ const generateRows = () => {
 			<div className="row" key={generateKey()}>
 				<div className="card card-left">
 					<img
-						src="/img.jpg"
+						src={imgs[i - 1]}
 						alt="some picture"
 						className="w-full h-full object-cover"
 						width={100}
@@ -21,7 +25,7 @@ const generateRows = () => {
 				</div>
 				<div className="card card-right">
 					<img
-						src="/img.jpg"
+						src={imgs[i + 2]}
 						alt="some picture"
 						className="w-full h-full object-cover"
 						width={100}
@@ -114,30 +118,24 @@ function CTA() {
 
 					<div className="copy my-8 flex flex-col justify-center items-center">
 						<div className="line">
-							<p>Delve into coding without clutter.</p>
+							<p>Engineering with real world impact.</p>
 						</div>
 						<div className="line">
-							<p>One subscription. Endless web design.</p>
+							<p>Full-stack systems and AI workflows.</p>
 						</div>
 						<div className="line">
-							<p>Take the fast lane to master.</p>
+							<p>Leading teams to ship.</p>
 						</div>
 					</div>
 
 					<div className="btn">
-						<button className="relative px-4 py-8 text-lg text-white border-2 border-white rounded-full bg-none outline-none translate-y-[30px] opacity-0">
-							Get Pro
+						<button className="relative px-4 py-16 text-lg text-white border-2 border-white rounded-full bg-none outline-none translate-y-[30px] opacity-0">
+							Get In Touch
 						</button>
 					</div>
 				</div>
 
 				{generateRows()}
-			</div>
-
-			<div className="h-[50vh] items-start flex justify-center overflow-x-hidden w-screen relative">
-				<a href="https://clupai.com" className="text-[4vw] text-white">
-					Link in description
-				</a>
 			</div>
 		</section>
 	);
