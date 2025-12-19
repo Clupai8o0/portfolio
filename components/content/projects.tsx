@@ -183,37 +183,15 @@ function Projects() {
 
 	useEffect(() => {
 		if (!imageRef.current) return;
-
-		const source = imageRef.current;
-		const rect = source.getBoundingClientRect();
-		const clone = source.cloneNode(true) as HTMLImageElement;
-
-		Object.assign(clone.style, {
-			position: "fixed",
-			top: `${rect.top}px`,
-			left: `${rect.left}px`,
-			width: `${rect.width}px`,
-			height: `${rect.height}px`,
-			pointerEvents: "none",
-			zIndex: "50",
-		});
-
-		document.body.appendChild(clone);
-
 		gsap.fromTo(
-			clone,
-			{ y: 0 },
-			{
-				y: "-100%",
-				duration: 1,
-				ease: "power3.out",
-				onComplete: () => clone.remove(),
-			}
+			imageRef.current,
+			{ opacity: 0, scale: 0.98 },
+			{ opacity: 1, scale: 1, duration: 0.5, ease: "power2.out" }
 		);
 	}, [activeCard]);
 
 	return (
-		<section className="mt-24">
+		<section className="my-24">
 			<Bounded className="mb-12 md:mb-20">
 				<Title text="My Projects" />
 				{/* //todo:fix the animation */}
@@ -271,7 +249,7 @@ function Projects() {
 											>
 												<span>
 													<DynamicIcon
-													//@ts-ignore
+														//@ts-ignore
 														name={icon}
 														color={(style === "primary" && "black") || "white"}
 														size={16}
@@ -288,7 +266,7 @@ function Projects() {
 				</div>
 
 				<div className="absolute w-screen h-full top-0 left-0 -z-10">
-					<div className="hidden lg:sticky w-1/2 h-screen top-0 left-1/2">
+					<div className="hidden lg:block sticky w-1/2 h-screen top-0 left-1/2">
 						<div className="slide">
 							<div className="slide-bg-img">
 								<img
