@@ -9,6 +9,7 @@ import { scrollSnapSettings } from "@/lib/animations";
 import { Badge } from "../ui/badge";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
+import { DynamicIcon } from "lucide-react/dynamic";
 
 const data = [
 	{
@@ -18,6 +19,22 @@ const data = [
 		description:
 			"GovChat is an AI-powered web app that lets users explore Australian government datasets using natural-language questions. It combines a Next.js frontend with a Python FastAPI backend to run a retrieval-augmented generation pipeline for grounded, contextual answers.",
 		img: "/govchat.png",
+		btns: [
+			{
+				label: "Source Code",
+				href: "https://github.com/shalok-sys/govchat",
+				_target: "_blank",
+				style: "primary",
+				icon: "github",
+			},
+			{
+				label: "Live Demo",
+				href: "https://govchat-dsec.vercel.app/",
+				_target: "_blank",
+				style: "secondary",
+				icon: "arrow-up-right",
+			},
+		],
 	},
 	{
 		id: "notes-app",
@@ -26,6 +43,15 @@ const data = [
 		description:
 			"A full-stack note-taking app built with a production-style DevOps pipeline. The system is containerized and deployed on AWS, with CI/CD stages covering build, test, code quality, security scanning, and monitoring—built to reflect real engineering workflows, not just “it runs on my laptop.”",
 		img: "/notes-app.png",
+		btns: [
+			{
+				label: "Source Code",
+				href: "https://github.com/clupai8o0/notes-app",
+				_target: "_blank",
+				style: "primary",
+				icon: "github",
+			},
+		],
 	},
 	{
 		id: "nmmun",
@@ -34,6 +60,22 @@ const data = [
 		description:
 			"A production website/template built for New Millennium Model United Nations (NMMUN), used as the event’s public information hub. Designed for clarity, performance, and fast content updates under live-event constraints.",
 		img: "/nmmun.png",
+		btns: [
+			{
+				label: "Source Code",
+				href: "https://github.com/clupai8o0/nmmun",
+				_target: "_blank",
+				style: "primary",
+				icon: "github",
+			},
+			{
+				label: "Live Demo",
+				href: "https://nmmun-template.vercel.app/",
+				_target: "_blank",
+				style: "secondary",
+				icon: "arrow-up-right",
+			},
+		],
 	},
 	{
 		id: "krishnaveni",
@@ -42,6 +84,22 @@ const data = [
 		description:
 			"A production website built for Krishnaveni School, integrating Sanity CMS to allow non-technical staff to manage content independently. The system focuses on usability, accessibility, and SEO, enabling the school to update announcements, pages, and information without developer intervention.",
 		img: "/krishnaveni.png",
+		btns: [
+			{
+				label: "Source Code",
+				href: "https://github.com/clupai8o0/krishnaveni",
+				_target: "_blank",
+				style: "primary",
+				icon: "github",
+			},
+			{
+				label: "Live Demo",
+				href: "https://krishnavenischool.co.in/",
+				_target: "_blank",
+				style: "secondary",
+				icon: "arrow-up-right",
+			},
+		],
 	},
 	{
 		id: "pas",
@@ -50,6 +108,22 @@ const data = [
 		description:
 			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni praesentium dolorem labore atque, in deleniti ex, ea cupiditate quis nostrum dolores, repellat ad quisquam earum illo molestiae maiores eius laborum!",
 		img: "/pas.png",
+		btns: [
+			{
+				label: "Source Code",
+				href: "https://github.com/clupai8o0/pas",
+				_target: "_blank",
+				style: "primary",
+				icon: "github",
+			},
+			{
+				label: "Live Demo",
+				href: "https://pas-app.vercel.app",
+				_target: "_blank",
+				style: "secondary",
+				icon: "arrow-up-right",
+			},
+		],
 	},
 ];
 
@@ -73,7 +147,10 @@ function Projects() {
 	useLayoutEffect(() => {
 		gsap.registerPlugin(ScrollTrigger);
 
-		const breakpoints = data.map((_, index) => index / data.length);
+		const breakpoints = data.map((_, index) => {
+			if (index < Math.floor(data.length / 2)) return index / data.length;
+			return index / data.length + 0.15;
+		});
 		const snapTo = gsap.utils.snap(breakpoints);
 
 		const context = gsap.context(() => {
@@ -83,19 +160,20 @@ function Projects() {
 				end: "bottom bottom",
 				scrub: true,
 				onUpdate: (self) => {
-					const latest = self.progress;
-					const closest = breakpoints.reduce(
-						(acc, breakpoint, index) =>
-							Math.abs(latest - breakpoint) <
-							Math.abs(latest - breakpoints[acc])
-								? index
-								: acc,
-						0
-					);
-					setActiveCard(closest);
+					// const latest = self.progress;
+					// const closest = breakpoints.reduce(
+					// 	(acc, breakpoint, index) =>
+					// 		Math.abs(latest - breakpoint) <
+					// 		Math.abs(latest - breakpoints[acc])
+					// 			? index
+					// 			: acc,
+					// 	0
+					// );
+					// setActiveCard(closest);
 
-					// const snapped = snapTo(self.progress);
-					// setActiveCard(breakpoints.indexOf(snapped));
+					const snapped = snapTo(self.progress);
+					setActiveCard(breakpoints.indexOf(snapped));
+					console.log(snapped, breakpoints.indexOf(snapped), breakpoints);
 				},
 			});
 		}, [containerRef, activeCard]);
@@ -119,10 +197,10 @@ function Projects() {
 				{/* //todo:fix the animation */}
 			</Bounded>
 
-			<div className="relative p">
+			<div className="relative p z-10">
 				<div className="max-w-7xl mx-auto" ref={containerRef}>
 					<div className="w-full lg:w-1/2">
-						{data.map(({ title, tags, description, id, img }) => (
+						{data.map(({ title, tags, description, id, btns }) => (
 							<div key={generateKey()} id={id}>
 								<div className="w-full h-1/3 lg:hidden">
 									<img
@@ -155,14 +233,40 @@ function Projects() {
 										})}
 									</div>
 									<p className="opacity-60 font-thin">{description}</p>
+
+									<div className="flex items-center gap-4 mt-8">
+										{btns.map(({ _target, href, label, style, icon }) => (
+											<a
+												key={generateKey()}
+												href={href}
+												target={_target}
+												className={cn(
+													"px-4 py-2 flex items-center gap-2 rounded-full transition-all duration-300 hover:scale-105 cursor-pointer",
+													style === "primary" && "bg-white text-black",
+													style === "secondary" &&
+														"border border-white text-white"
+												)}
+											>
+												<span>
+													<DynamicIcon
+													//@ts-ignore
+														name={icon}
+														color={(style === "primary" && "black") || "white"}
+														size={16}
+													/>
+												</span>
+												<span>{label}</span>
+											</a>
+										))}
+									</div>
 								</div>
 							</div>
 						))}
 					</div>
 				</div>
 
-				<div className="absolute w-screen h-full top-0 left-0">
-					<div className="w-1/2 h-screen top-0 left-1/2 sticky">
+				<div className="absolute w-screen h-full top-0 left-0 -z-10">
+					<div className="hidden lg:sticky w-1/2 h-screen top-0 left-1/2">
 						<div className="slide">
 							<div className="slide-bg-img">
 								<img
