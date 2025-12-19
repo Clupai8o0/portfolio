@@ -17,7 +17,7 @@ const data = [
 		tags: ["RAG", "Next.js", "FastAPI", "VectorDB", "LLM Apps"],
 		description:
 			"GovChat is an AI-powered web app that lets users explore Australian government datasets using natural-language questions. It combines a Next.js frontend with a Python FastAPI backend to run a retrieval-augmented generation pipeline for grounded, contextual answers.",
-		img: "/img.jpg",
+		img: "/govchat.png",
 	},
 	{
 		id: "notes-app",
@@ -33,7 +33,7 @@ const data = [
 		tags: ["Production Web", "Next.js", "SEO", "UX/UI", "Live Event"],
 		description:
 			"A production website/template built for New Millennium Model United Nations (NMMUN), used as the event’s public information hub. Designed for clarity, performance, and fast content updates under live-event constraints.",
-		img: "/img.jpg",
+		img: "/nmmun.png",
 	},
 	{
 		id: "krishnaveni",
@@ -41,7 +41,7 @@ const data = [
 		tags: ["Freelance", "Next.js", "SEO", "Conversion", "Real Client", "CMS"],
 		description:
 			"A production website built for Krishnaveni School, integrating Sanity CMS to allow non-technical staff to manage content independently. The system focuses on usability, accessibility, and SEO, enabling the school to update announcements, pages, and information without developer intervention.",
-		img: "/img.jpg",
+		img: "/krishnaveni.png",
 	},
 	{
 		id: "pas",
@@ -49,7 +49,7 @@ const data = [
 		tags: ["Security", "Full-Stack", "Auth", "Data Handling", "Product Build"],
 		description:
 			"Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni praesentium dolorem labore atque, in deleniti ex, ea cupiditate quis nostrum dolores, repellat ad quisquam earum illo molestiae maiores eius laborum!",
-		img: "/img.jpg",
+		img: "/pas.png",
 	},
 ];
 
