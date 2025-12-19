@@ -105,10 +105,32 @@ function Projects() {
 
 	useEffect(() => {
 		if (!imageRef.current) return;
+
+		const source = imageRef.current;
+		const rect = source.getBoundingClientRect();
+		const clone = source.cloneNode(true) as HTMLImageElement;
+
+		Object.assign(clone.style, {
+			position: "fixed",
+			top: `${rect.top}px`,
+			left: `${rect.left}px`,
+			width: `${rect.width}px`,
+			height: `${rect.height}px`,
+			pointerEvents: "none",
+			zIndex: "50",
+		});
+
+		document.body.appendChild(clone);
+
 		gsap.fromTo(
-			imageRef.current,
-			{ opacity: 0, scale: 0.98 },
-			{ opacity: 1, scale: 1, duration: 0.5, ease: "power2.out" }
+			clone,
+			{ y: 0 },
+			{
+				y: "-100%",
+				duration: 1,
+				ease: "power3.out",
+				onComplete: () => clone.remove(),
+			}
 		);
 	}, [activeCard]);
 
