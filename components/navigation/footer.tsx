@@ -52,7 +52,7 @@ const Footer = () => {
 					</ul>
 				</div>
 				<div className="border-t border-white/20 flex justify-between items-center py-2">
-					<Logo className="text-white text-xl" />
+					<span className="font-white text-xl font-regular ">clupai</span>
 					<ul className="flex space-x-6 mt-4 opacity-80">
 						<li>
 							<a href="#home" className="hover:underline opacity-100">Home</a>
