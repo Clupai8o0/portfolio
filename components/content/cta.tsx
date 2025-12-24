@@ -129,9 +129,9 @@ function CTA() {
 					</div>
 
 					<div className="btn">
-						<button className="relative px-4 py-16 text-lg text-white border-2 border-white rounded-full bg-none outline-none translate-y-[30px] opacity-0">
+						<div className="relative p-8 text-lg text-white border-2 border-white rounded-full bg-none outline-none translate-y-[30px] opacity-0">
 							Get In Touch
-						</button>
+						</div>
 					</div>
 				</div>
 

@@ -200,11 +200,11 @@ function Projects() {
 			<div className="relative p z-10">
 				<div className="max-w-7xl mx-auto" ref={containerRef}>
 					<div className="w-full lg:w-1/2">
-						{data.map(({ title, tags, description, id, btns }) => (
+						{data.map(({ title, tags, description, id, btns, img }) => (
 							<div key={generateKey()} id={id}>
 								<div className="w-full h-1/3 lg:hidden">
 									<img
-										src={data[activeCard].img}
+										src={img}
 										alt=""
 										className="h-full w-full object-cover"
 									/>
