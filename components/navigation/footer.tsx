@@ -7,7 +7,7 @@ const Footer = () => {
 		<footer className="w-full mt-4">
 			<div className="max-w-7xl mx-auto my-8">
 				<div className="w-full flex flex-col items-center" id="contact">
-					<h1 className="text-3xl md:text-4xl lg:text-6xl">Get In Touch</h1>
+					<h1 className="text-4xl lg:text-6xl">Get In Touch</h1>
 					<ul className="flex space-x-4 mt-6 mb-12">
 						<li>
 							<a
@@ -51,7 +51,7 @@ const Footer = () => {
 						</li>
 					</ul>
 				</div>
-				<div className="border-t border-white/20 flex justify-between items-center py-2">
+				<div className="border-t border-white/20 flex flex-col md:flex-row justify-between items-center py-6">
 					<span className="font-white text-xl font-regular ">clupai</span>
 					<ul className="flex space-x-6 mt-4 opacity-80">
 						<li>

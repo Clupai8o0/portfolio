@@ -38,6 +38,10 @@
 	body {
 		@apply bg-background text-foreground font-sans overflow-x-hidden overflow-y-auto;
 	}
+	html { scroll-behavior: smooth; }
+	@media (prefers-color-scheme: dark) {
+		html { scroll-behavior: auto; }
+	}
 }
 
 .p {

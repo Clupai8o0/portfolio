@@ -44,7 +44,7 @@ const HeroContent = () => {
 	);
 
 	return (
-		<div ref={container} className="mt-8 md:mt-16">
+		<div ref={container} className="mt-8 md:mt-16" id="home">
 			<h1 className="flex flex-wrap justify-start items-center gap-2 md:gap-3 lg:gap-4 font-light font-sans text-6xl md:text-7xl lg:text-[108px] p">
 				{heroPhrase.map((word, i) => (
 					<div key={generateKey()} className="relative">

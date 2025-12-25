@@ -112,7 +112,7 @@ function CTA() {
 
 	return (
 		<section className="relative text-white">
-			<div className="main w-screen h-[150vh] flex-col relative justify-center items-center flex overflow-x-hidden">
+		<div className="main w-screen h-screen md:h-[150vh] flex-col relative justify-center items-center flex overflow-x-hidden">
 				<div className="main-content absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
 					<Logo className="logo text-white text-2xl" />
 

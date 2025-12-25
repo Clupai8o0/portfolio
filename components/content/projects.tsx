@@ -191,7 +191,7 @@ function Projects() {
 	}, [activeCard]);
 
 	return (
-		<section className="my-24">
+		<section className="mt-24 md:my-24">
 			<Bounded className="mb-12 md:mb-20">
 				<Title text="My Projects" />
 				{/* //todo:fix the animation */}
@@ -199,19 +199,19 @@ function Projects() {
 
 			<div className="relative p z-10">
 				<div className="max-w-7xl mx-auto" ref={containerRef}>
-					<div className="w-full lg:w-1/2">
+					<div className="w-full flex flex-col space-y-20 lg:space-y-0 lg:block lg:w-1/2">
 						{data.map(({ title, tags, description, id, btns, img }) => (
 							<div key={generateKey()} id={id}>
 								<div className="w-full h-1/3 lg:hidden">
 									<img
 										src={img}
 										alt=""
-										className="h-full w-full object-cover"
+										className="h-full w-full object-cover mb-4"
 									/>
 								</div>
 
 								<div className="h-2/3 lg:h-screen w-full flex flex-col justify-center items-start text-white pr-8">
-									<h1 className="text-7xl">{title}</h1>
+									<h1 className="text-5xl md:text-7xl">{title}</h1>
 									<div className="flex flex-wrap gap-2 mt-4 mb-4">
 										{tags.map((tag) => {
 											const color =
