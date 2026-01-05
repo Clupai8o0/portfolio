@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, IBM_Plex_Mono } from "next/font/google";
+import Script from "next/script";
 
 import "./globals.css";
 
@@ -29,6 +30,18 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`${sans.variable} ${mono.variable} antialiased`}>
+				<Script
+					src="https://www.googletagmanager.com/gtag/js?id=G-2G7CCDS44S"
+					strategy="afterInteractive"
+				/>
+				<Script id="google-analytics" strategy="afterInteractive">
+					{`
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						gtag('config', 'G-2G7CCDS44S');
+					`}
+				</Script>
 				{children}
 			</body>
 		</html>
