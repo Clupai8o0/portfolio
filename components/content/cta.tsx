@@ -3,7 +3,10 @@
 import { useEffect } from "react";
 import Logo from "../navigation/logo";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { generateKey } from "@/lib/utils";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const imgs = [
 	"/govchat.png", "/notes-app.png", "/nmmun.png", "/krishnaveni.png", "/pas.png", "/thurman.png"
