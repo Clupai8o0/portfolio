@@ -53,7 +53,7 @@ const Footer = () => {
 				</div>
 				<div className="border-t border-white/20 flex flex-col md:flex-row justify-between items-center py-6">
 					<span className="font-white text-xl font-regular ">clupai</span>
-					<ul className="flex space-x-6 mt-4 opacity-80">
+					<ul className="flex flex-wrap space-x-6 mt-4 opacity-80">
 						<li>
 							<a href="#home" className="hover:underline opacity-100">Home</a>
 						</li>
@@ -65,6 +65,9 @@ const Footer = () => {
 						</li>
 						<li>
 							<a href="#projects" className="hover:underline opacity-100">Projects</a>
+						</li>
+						<li>
+							<a href="/resume" className="hover:underline opacity-100">Resume</a>
 						</li>
 						<li>
 							<a href="#contact" className="hover:underline opacity-100">Contact</a>

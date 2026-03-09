@@ -32,8 +32,11 @@ const Navbar = () => {
 		<header ref={container} className="nav-layout">
 			<Logo className="text-white text-xl" />
 			<nav className="flex gap-8 items-center">
-				<div id="contact-button">
-					<Link href="/contact" className="button hidden md:block">
+				<div id="contact-button" className="hidden md:flex gap-4 items-center">
+					<Link href="/resume" className="text-white text-base font-light hover:opacity-70 transition duration-300">
+						Resume
+					</Link>
+					<Link href="/contact" className="button">
 						Contact
 					</Link>
 				</div>
