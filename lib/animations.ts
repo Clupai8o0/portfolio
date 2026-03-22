@@ -69,3 +69,5 @@ export const scrollSnapSettings: SnapOptions = {
 	// 	console.log("snap finish", snap);
 	// },
 };
+
+// random comment
